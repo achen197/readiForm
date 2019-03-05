@@ -9,19 +9,19 @@
           <div class='col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10'>
               <div class="form-group">
                   <label class="control-label" for="street">Degree</label>  
-                  <input class="form-control input-md" #street="ngModel" required id="street" name="street" type="text" placeholder="Street Address" [(ngModel)]="capability.university">
+                  <input class="form-control input-md" #degree="ngModel" required id="degree" name="street" type="text" placeholder="Degree" [(ngModel)]="capability.degree">
               </div>   
               <div class="row">
                   <div class='col-xs-12 col-sm-4'>
                       <div class="form-group">
                           <label class="control-label" for="city">University</label>  
-                          <input class="form-control input-md" #city="ngModel" required id="city" name="city" type="text" placeholder="City" [(ngModel)]="capability.degree">
+                          <input class="form-control input-md" #university="ngModel" required id="university" name="city" type="text" placeholder="Univeristy" [(ngModel)]="capability.university">
                       </div>
                   </div>
                   <div class='col-xs-4 col-sm-offset-1 col-sm-3'>
                       <div class="form-group">
                           <label class="control-label" for="state">Year Graduated</label>  
-                          <input class="form-control input-md" #state="ngModel" required id="state" name="state" type="text" placeholder="State" [(ngModel)]="capability.graduated">
+                          <input class="form-control input-md" #year="ngModel" required id="year" name="state" type="number" placeholder="Year Graduated" [(ngModel)]="capability.graduated">
                       </div>
                   </div>
               </div>

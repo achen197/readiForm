@@ -44,7 +44,7 @@ main {
 
 .btn {
     border: 2px solid white;
-    padding: 0.5rem 3rem;
+    padding: 0.8rem 3rem;
 
     a {
         color: white;
@@ -52,8 +52,13 @@ main {
         text-transform: uppercase;
         font-weight: 700;
         letter-spacing: 2px;
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
+}
+
+.btn-solid {
+	background: #00aeef;
+	border: none;
 }
 
 section {
@@ -62,16 +67,24 @@ section {
 	align-items: center;
 	justify-content: center;
 	&:nth-child(odd) {
-		// background: #009FFF;  /* fallback for old browsers */
-        // background: -webkit-linear-gradient(to right, #ec2F4B, #009FFF);  /* Chrome 10-25, Safari 5.1-6 */
-        // background: linear-gradient(to right, #ec2F4B, #009FFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         background: #00aeef;
         background-image: url("https://images.pexels.com/photos/1661004/pexels-photo-1661004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+		opacity: 0.7;
+
+		&:hover {
+			opacity: 0.9;
+		}
 	}
 	&:nth-child(even) {
         background: #007dab;  
         background-image: url("https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-    }
+		opacity: 0.7;
+
+		&:hover {
+			opacity: 0.9;
+		}
+	}
+
 
     .overlay {
         position: absolute;
@@ -80,20 +93,48 @@ section {
         left: 0;
         right: 0;
         height: 100%;
-        width: 100%;
+        width: 50%;
         opacity: 0;
-        transition: .5s ease;
+		transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
         background-color: #008CBA;
-        opacity: 0.5;
-      }
+		opacity: 0.5;
+		
+		&:hover {
+			width: 65%;
+			opacity: 0.15;
+		}
+	  }
+
+	  .overlay-kloud {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50vw;
+        right: 0;
+        height: 100%;
+        width: 50%;
+        opacity: 0;
+		transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
+        background-color: #008CBA;
+		opacity: 0.5;
+		
+		&:hover {
+			width: 65%;
+			opacity: 0.15;
+		}
+	  }
+	  
+	  .sub-heading {
+		  text-align: center;
+	  }
       
 }
 
 @media screen and(min-width:981px) {
 	section {
-        // transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
-        transition: ease-in-out 0.2s;
-		@for $i from 1 through 4 {
+        transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
+        // transition: ease-in-out 0.2s;
+		@for $i from 1 through 2 {
 			&:nth-child(#{$i}):hover {
 				width: 120vw;
 			}
@@ -107,14 +148,30 @@ section {
 @media screen and (max-width: 980px) {
 	main {
 		display: unset;
-		margin-top: 80px;
 		section {
 			float: left;
 			@include object(50vw, calc(50vh - 40px), null);
 			border-bottom: 2px solid rgba(#000, 0.2);
 			.content {
-				transform: rotate(0deg);
+				img {
+					width: 350px;
+					display: block;
+					margin: 0 auto;
+				}
 			}
+			&:nth-child(odd),
+			&:nth-child(even) {
+				opacity: 0.9;
+				height: 50vh;
+			}
+
+			.sub-heading {
+				margin-top: 2rem;
+			}
+		}
+				
+		.btn {
+			padding: 0.5rem 2rem;
 		}
 	}
 }

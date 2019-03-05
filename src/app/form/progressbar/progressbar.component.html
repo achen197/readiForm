@@ -1,41 +1,46 @@
 <div class="board-inner" id="status-buttons">
   <ul class="nav nav-tabs" id="myTab">
-      <div class="liner"></div>
+      <!-- <div class="liner"></div> -->
                   
       <!-- circular user icon -->
       <li>
           <a routerLink="/personal" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" data-toggle="tab" title="personal">
               <span class="round-tabs one">
-                  <i class="glyphicon glyphicon-user"></i>
+                 <img src="../../../assets/img/woman.png" width="50px" alt="">
               </span>
           </a>
+          <span class="progress-text">About You</span>
       </li>
 
       <!-- circular tasks icon -->
        <li>
           <a routerLink="/degree" routerLinkActive="active" data-toggle="tab" title="work">
               <span class="round-tabs two">
-                  <i class="glyphicon glyphicon-tasks"></i>
+                <img src="../../../assets/img/mortarboard.png" width="50px" alt="">   
               </span> 
           </a>
+          <span class="progress-text">University</span>
+
       </li>
 
       <!-- circular home icon -->
       <li>
           <a routerLink="/capabilities" routerLinkActive="active" data-toggle="tab" title="address">    
               <span class="round-tabs three">
-                  <i class="glyphicon glyphicon-home"></i>
+                <img src="../../../assets/img/office.png" width="50px" alt="">                  
               </span>
           </a>
+          <span class="progress-text">Capabiilty</span>
       </li>
 
       <!-- circular ok icon -->
       <li>
           <a routerLink="/result" routerLinkActive="active" data-toggle="tab" title="completed">
               <span class="round-tabs four">
-                  <i class="glyphicon glyphicon-ok"></i>
+                <img src="../../../assets/img/checked.png" width="50px" alt="">
               </span>
           </a>
+          <span class="progress-text">Confirm</span>
       </li>
               
   </ul>
