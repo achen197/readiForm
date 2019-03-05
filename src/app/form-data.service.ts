@@ -32,13 +32,13 @@ export class FormDataService {
 
   getWork() : string {
       // Return the work type
-      return this.formData.degree;
+      return this.formData.capability;
   }
   
   setWork(data: string) {
       // Update the work type only when the Work Form had been validated successfully
       this.isDegreeFormValid = true;
-      this.formData.degree = data;
+      this.formData.capability = data;
   }
 
   getAddress() : Degree {
