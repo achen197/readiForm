@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input }   from '@angular/core';
+import { FormDataService } from 'src/app/form-data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'form';
+  @Input() formData;
+  title = "yeet";
+
+  constructor(private formDataService: FormDataService) {}
+
+  ngOnInit() {
+    // this.formData = this.formDataService.getFormData();
+    console.log(this.title + ' loaded!');
+}
 }

@@ -1,0 +1,141 @@
+// .development {
+//     background: pink;
+// }
+
+// .design {
+//     background: purple;
+// }
+
+// .data {
+//     background: red
+// }
+
+// .development,
+// .design,
+// .data {
+//     height: 100vh;
+// }
+
+@mixin object($width, $height, $bg) {
+	width: $width;
+	height: $height;
+	background: $bg;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+// Colors
+$blue: #2661f7;
+$green: #62ffd0;
+$heading-font: 'Roboto', sans-serif;
+$body-font: 'Open Sans', sans-serif;
+
+.wrapper {
+	display: grid;
+	grid-template-rows: 80px 1fr;
+}
+
+main {
+	@include object(100vw, null, null);
+	display: flex;
+}
+
+.btn {
+    border: 2px solid white;
+    padding: 0.5rem 3rem;
+
+    a {
+        color: white;
+        font-family: $heading-font;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 2px;
+        font-size: 1rem;
+    }
+}
+
+section {
+	@include object(50vw, 100vh, null);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&:nth-child(odd) {
+		// background: #009FFF;  /* fallback for old browsers */
+        // background: -webkit-linear-gradient(to right, #ec2F4B, #009FFF);  /* Chrome 10-25, Safari 5.1-6 */
+        // background: linear-gradient(to right, #ec2F4B, #009FFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: #00aeef;
+        background-image: url("https://images.pexels.com/photos/1661004/pexels-photo-1661004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+	}
+	&:nth-child(even) {
+        background: #007dab;  
+        background-image: url("https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: #008CBA;
+        opacity: 0.5;
+      }
+      
+}
+
+@media screen and(min-width:981px) {
+	section {
+        // transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
+        transition: ease-in-out 0.2s;
+		@for $i from 1 through 4 {
+			&:nth-child(#{$i}):hover {
+				width: 120vw;
+			}
+		}
+		.content {
+			transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
+		}
+	}
+}
+
+@media screen and (max-width: 980px) {
+	main {
+		display: unset;
+		margin-top: 80px;
+		section {
+			float: left;
+			@include object(50vw, calc(50vh - 40px), null);
+			border-bottom: 2px solid rgba(#000, 0.2);
+			.content {
+				transform: rotate(0deg);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	nav {
+		a {
+			display: none;
+		}
+		span {
+			display: flex;
+		}
+	}
+}
+
+
+@media screen and (max-width: 480px) {
+	main {
+		section {
+			width: 100vw;
+			border: none;
+		}
+	}
+}
