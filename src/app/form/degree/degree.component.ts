@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router }  from '@angular/router';
 import { FormDataService } from 'src/app/form-data.service';
 
 
-import { Capability } from 'src/app/form-data'
+import { Capability, Personal } from 'src/app/form-data'
 
 @Component({
   selector: 'app-degree',
@@ -11,6 +11,7 @@ import { Capability } from 'src/app/form-data'
   styleUrls: ['./degree.component.scss']
 })
 export class DegreeComponent implements OnInit {
+  personal: Personal;
   capability: Capability;
   form: any;
   
@@ -19,14 +20,15 @@ export class DegreeComponent implements OnInit {
 
   ngOnInit() {
     this.capability = this.formDataService.getAddress();
-    console.log('Address feature loaded!');
+    this.personal = this.formDataService.getPersonal();
+    console.log(this.personal);
 }
 
 save(form: any): boolean {
     if (!form.valid) {
         return false;
     }
-        
+
     this.formDataService.setAddress(this.capability);
     return true;
 }

@@ -1,38 +1,57 @@
+<div class="container-full">
+    <div class="row">
+        <div class="col-6 placeholder-img">
 
-<app-progressbar></app-progressbar>
+        </div>
 
-<form #addressForm="ngForm" class="editForm" novalidate>
-  <div class="tab-pane fade in active">
-      <h3 class="head text-center">Nice to meet you {{formData.firstName}}! 
-          What and where did you study?</h3>
-      <br/>
-      <div class='row'>
-          <div class='col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10'>
-              <div class="form-group">
-                  <label class="control-label" for="street">Degree</label>  
-                  <input class="form-control input-md" #degree="ngModel" required id="degree" name="street" type="text" placeholder="Degree" [(ngModel)]="capability.degree">
-              </div>   
-              <div class="row">
-                  <div class='col-xs-12 col-sm-4'>
-                      <div class="form-group">
-                          <label class="control-label" for="city">University</label>  
-                          <input class="form-control input-md" #university="ngModel" required id="university" name="city" type="text" placeholder="Univeristy" [(ngModel)]="capability.university">
-                      </div>
-                  </div>
-                  <div class='col-xs-4 col-sm-offset-1 col-sm-3'>
-                      <div class="form-group">
-                          <label class="control-label" for="state">Year Graduated</label>  
-                          <input class="form-control input-md" #year="ngModel" required id="year" name="state" type="number" placeholder="Year Graduated" [(ngModel)]="capability.graduated">
-                      </div>
-                  </div>
-              </div>
-          </div>
+        <div class="col-6 form-q">
+            <app-progressbar></app-progressbar>
 
-          <div class="form-group text-center">
-              <button class="btn btn-outline-rounded btn-default" (click)="goToPrevious(addressForm)"> <span style="margin-right:10px;" class="glyphicon glyphicon-arrow-left"></span> Previous</button>
-              <button class="btn btn-outline-rounded btn-info" [disabled]="!addressForm.valid" (click)="goToNext(addressForm)"> Next <span style="margin-left:10px;" class="glyphicon glyphicon-arrow-right"></span></button>
-          </div>
-      </div>
-  
-  </div>
-</form>
+            <form #addressForm="ngForm" class="editForm" novalidate>
+                <div class="tab-pane fade in active">
+                    <div class="welcome-img">
+                        <img src="https://previews.123rf.com/images/tusia/tusia1608/tusia160800026/61304557-vector-drawing-of-icon-little-boy-in-the-cloud-waving-his-hand-hello-gesture-.jpg"
+                            width="300px" alt="">
+                    </div>
+                    <h3 class="welcome-msg text-center">Nice to meet you {{personal.firstName}}!
+                        What and where did you study?</h3>
+                    <br />
+                    <div class='row'>
+                        <div class='col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8'>
+                            <mat-form-field class="long-input">
+                                <input matInput placeholder="Degree" #degree="ngModel" required id="degree"
+                                    name="degree" type="text" placeholder="Degree" [(ngModel)]="capability.degree">
+                            </mat-form-field>
+                            <div class="row">
+                                <div class='col-xs-12 col-sm-6'>
+                                        <mat-form-field>
+                                            <input matInput placeholder="University" #university="ngModel" required
+                                                id="university" name="university" type="text" placeholder="Univeristy"
+                                                [(ngModel)]="capability.university">
+                                        </mat-form-field>
+                                </div>
+                                <div class='col-xs-12 col-sm-6'>
+                                        <mat-form-field>
+                                            <input matInput placeholder="Year Graduating/ed" #year="ngModel" required
+                                                id="year" name="state" type="number" placeholder="Year Graduated"
+                                                [(ngModel)]="capability.graduated">
+                                        </mat-form-field>
+                                </div>
+                                <div class="form-group text-center page-btn">
+                                        <button mat-stroked-button color="primary" class="btn mr-5" (click)="goToPrevious(addressForm)">
+                                            <span style="margin-right:10px;" class="glyphicon glyphicon-chevron-left"></span>
+                                            Back</button>
+                                        <button mat-raised-button color="primary" class="btn" [disabled]="!addressForm.valid"
+                                            (click)="goToNext(addressForm)"> Next <span style="margin-left:10px;"
+                                                class="glyphicon glyphicon-chevron-right"></span></button>
+                            </div>
+                        </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
