@@ -1,14 +1,14 @@
-<div class="container-full">
+<div class="container-full form">
   <div class="row">
     <div class="col-lg-6 placeholder-img">
 
     </div>
 
-    <div class="col-lg-6 col-xs-12 form-q">
+    <div class="col-lg-6 col-xs-12 col-sm-12 form-q">
 
-      <nav class="navbar mb-5">
+      <nav class="navbar mb-1">
         <a class="navbar-brand" href="#">
-          <img src="../../../assets/img/readify_logo.png" width="100" class="d-inline-block align-top" alt="">
+          <img src="../../../assets/img/Readify_black_logo.png" width="100" class="d-inline-block align-top" alt="">
         </a>
       </nav>
 
@@ -16,6 +16,12 @@
         <mat-step [stepControl]="firstFormGroup">
           <form [formGroup]="firstFormGroup">
             <ng-template matStepLabel>About You</ng-template>
+            <div class="welcome-img">
+                <img src="https://previews.123rf.com/images/tusia/tusia1608/tusia160800026/61304557-vector-drawing-of-icon-little-boy-in-the-cloud-waving-his-hand-hello-gesture-.jpg" width="200px" alt="">
+            </div>
+              <h3 class="text-center welcome-msg">Hey there 👋! Thanks for choosing Readify, we'll just need to
+                grab a few details from you.
+              </h3>
             <mat-form-field>
               <input matInput placeholder="First Name" formControlName="firstName" [(ngModel)]="firstName" required>
             </mat-form-field>
@@ -25,14 +31,20 @@
             <mat-form-field>
               <input matInput placeholder="Email" formControlName="email" [(ngModel)]="email" required>
             </mat-form-field>
-            <div>
-              <button mat-raised-button color="primary" matStepperNext>Next</button>
+            <div class="text-center">
+              <button mat-raised-button color="primary" matStepperNext>Next<span style="margin-left:10px;" class="glyphicon glyphicon-chevron-right"></span></button>
             </div>
           </form>
         </mat-step>
         <mat-step [stepControl]="secondFormGroup">
           <form [formGroup]="secondFormGroup">
             <ng-template matStepLabel>Study</ng-template>
+            <div class="welcome-img">
+                <img src="https://previews.123rf.com/images/tusia/tusia1608/tusia160800026/61304557-vector-drawing-of-icon-little-boy-in-the-cloud-waving-his-hand-hello-gesture-.jpg"
+                    width="200px" alt="">
+            </div>
+            <h3 class="welcome-msg text-center">Nice to meet you {{firstName}}!
+                What and where did you study?</h3>
             <mat-form-field>
               <input matInput placeholder="Degree" formControlName="degree" [(ngModel)]="degree" required>
             </mat-form-field>
@@ -40,12 +52,13 @@
               <input matInput placeholder="University" formControlName="university" [(ngModel)]="university" required>
             </mat-form-field>
             <mat-form-field>
-              <input matInput placeholder="Year Graduated/Graduating" formControlName="year" [(ngModel)]="year"
+              <input matInput type="number" placeholder="Year Graduated/Graduating" formControlName="year" [(ngModel)]="year"
                 required>
             </mat-form-field>
-            <div>
+            <div class="text-center">
               <button mat-stroked-button color="primary" matStepperPrevious>Back</button>
-              <button mat-raised-button color="primary" matStepperNext>Next</button>
+              <button mat-raised-button color="primary" matStepperNext>Next<span style="margin-left:10px;"
+                class="glyphicon glyphicon-chevron-right"></span></button>
             </div>
           </form>
         </mat-step>
@@ -61,9 +74,11 @@
               <mat-radio-button value="Kloud">Kloud</mat-radio-button>
             </mat-radio-group>
 
-            <div>
-              <button mat-stroked-button color="primary" matStepperPrevious>Back</button>
-              <button mat-raised-button color="primary" matStepperNext>Next</button>
+            <div class="text-center">
+              <button mat-stroked-button color="primary" matStepperPrevious><span style="margin-left:10px;"
+                class="glyphicon glyphicon-chevron-left"></span>Back</button>
+              <button mat-raised-button color="primary" matStepperNext>Next<span style="margin-left:10px;"
+                class="glyphicon glyphicon-chevron-right"></span></button>
             </div>
           </form>
         </mat-step>
@@ -75,8 +90,9 @@
           <p>Studies: {{degree}} at {{university}}</p>
           <p>Graduated/Graduating in: {{year}}</p>
           <p>Interested in: {{capability}}</p>
-          <div>
-            <button mat-stroked-button color="primary" matStepperPrevious>Back</button>
+          <div class="text-center">
+            <button mat-stroked-button color="primary" matStepperPrevious><span style="margin-left:10px;"
+                class="glyphicon glyphicon-chevron-left"></span>Back</button>
             <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button>
           </div>
         </mat-step>

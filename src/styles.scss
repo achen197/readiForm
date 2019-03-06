@@ -5,31 +5,19 @@
 $head-font: 'Rubik', sans-serif;
 $body-font: 'Roboto', sans-serif;
 
-body {
-    // background-color: rgb(55, 63, 81);
+.navbar-brand {
+    padding: 0;
 }
 
 //Form Style
+.form {
+    overflow: hidden;
+}
 
 .form-group {
     margin-bottom: 3rem;
     display: block;
     margin: 0 auto;
-}
-
-.form-control {
-    border-radius: 20px;
-    // box-shadow: none;
-    border: none;
-    background: #fff;
-    height: 45px;
-    padding: 9px 19px;
-
-    &::placeholder {
-        font-weight: 700;
-        font-size: 1.4rem;
-        letter-spacing: 1px;
-    }
 }
 
 .mat-raised-button:not([class*=mat-elevation-z]),
@@ -42,24 +30,26 @@ body {
     font-family: $head-font;
     font-weight: 700;
     letter-spacing: 1px;
-    margin-top: 2rem;
-}
-
-.degree-btn .form-group {
-    display: block;
-    margin: 0 auto;
+    margin: 2rem;
 }
 
 .mat-raised-button .mat-button-wrapper>*, .mat-stroked-button .mat-button-wrapper>* {
     vertical-align: baseline !important;
 }
 
-.long-input {
-    width: 43.3rem;
+.mat-stepper-label-position-bottom .mat-horizontal-stepper-header .mat-step-label {
+    font-family: $head-font;
+    font-size: 1.4rem;
+    color: #555;
+    letter-spacing: 1px;
+}
+
+.mat-form-field {
+    display: block !important;
 }
 
 .welcome-msg {
-    font-family: 'Rubik', sans-serif;
+    font-family:$head-font;
     font-weight: 600;
     font-size: 2.5rem;
     letter-spacing: 1px;
@@ -78,7 +68,7 @@ body {
 }
 
 .form-q {
-    padding: 0;
+    padding: 1rem 14rem;
     
     img {
         display: block;
@@ -91,180 +81,18 @@ body {
 }
 //Form Style End
 
-//RILIWAN RABO CSS
-.board{
-    width: 75%;
-    margin: 60px auto;
-    height: 500px;
-    background: #fff;
-}
-.board .nav-tabs {
-    position: relative;
-
-    margin: 40px auto;
-    margin-bottom: 0;
-    box-sizing: border-box;
-}
-
-.nav-tabs {
-    border: none;
-    display: flex;
-    justify-content: space-between;
-}
-
-.liner{
-    height: 2px;
-    background: #ddd;
-    position: absolute;
-    width: 80%;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    top: 13%;
-    z-index: 1;
-}
-
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-    color: #555555;
-    cursor: default;
-    border: 0;
-    border-bottom-color: transparent;
-}
-
-span.round-tabs{
-    width: 30px;
-    height: 30px;
-    line-height: 28px;
-    display: inline-block;
-    border-radius: 100px;
-    z-index: 2;
-    position: absolute;
-    left: 0;
-    text-align: center;
-    font-size: 1.2rem;
-    font-family: $head-font;
-    font-weight: 700;
-}
-
-span.round-tabs.one,
-span.round-tabs.two,
-span.round-tabs.three,
-span.round-tabs.four {
-    color: #3f51b5;
-    border: 2px solid #3f51b5;
-}
-
-.nav-tabs > li.active > a span.round-tabs{
-    background: #fafafa;
-}
-
-.nav-tabs>li>a:hover {
-    border: none;
-    background: none;
-}
-
-.tab-content .tab-pane{
-   position: relative;
-padding-top: 50px;
-}
-.tab-content .head{
-    font-family: 'Roboto Condensed', sans-serif;
-    font-size: 25px;
-    text-transform: uppercase;
-    padding-bottom: 10px;
-}
-.btn-outline-rounded{
-    padding: 10px 40px;
-    margin: 20px 0;
-    border: 2px solid transparent;
-    border-radius: 25px;
-}
-
-.btn.green{
-    background-color:#5cb85c;
-    color: #ffffff;
-}
-
-
-
-@media( max-width : 585px ){
-    
-    .board {
-width: 90%;
-height:auto !important;
-}
-    span.round-tabs {
-        font-size:16px;
-width: 50px;
-height: 50px;
-line-height: 50px;
-    }
-    .tab-content .head{
-        font-size:20px;
-        }
-    .nav-tabs > li a {
-width: 50px;
-height: 50px;
-line-height:50px;
-}
-
-.nav-tabs > li.active:after {
-content: " ";
-position: absolute;
-left: 35%;
-}
-
-.btn-outline-rounded {
-    padding:12px 20px;
-    }
-}
-
-// END RILIWAN RABO
-
-//STYLE START
-
-.btn-default {
-    border-color: #ccc;
-}
-
-.tab-content .choice {
-  text-align: center;
-  cursor: pointer;
-  margin-top: 38px;
-}
-
-.tab-content .choice i {
-    font-size: 32px;
-    line-height: 55px;
-}
-
-.btn-radio {
-	width: 100%;
-}
-.img-radio {
-	opacity: 0.8;
-	margin-bottom: 5px;
-}
-
-.space-20 {
-    margin-top: 20px;
-}
-
-/* active buttons */
-#status-buttons a.active span.round-tabs.one,
-#status-buttons a.active span.round-tabs.two,
-#status-buttons a.active span.round-tabs.three,
-#status-buttons a.active span.round-tabs.four { 
-    background: #3f51b5; 
-    color: #fff
-}
-
-//STYLE END
-
 //MEDIA QUERIES
 
 @media screen and (max-width: 980px) {
+    .form {
+        overflow: auto;
+    }
+
     .placeholder-img {
         display: none;
+    }
+    
+    .form-q {
+        padding: 0 3rem;
     }
 }

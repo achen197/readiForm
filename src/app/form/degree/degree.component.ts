@@ -19,18 +19,12 @@ export class DegreeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.capability = this.formDataService.getAddress();
-    this.personal = this.formDataService.getPersonal();
-    console.log(this.personal);
 }
 
 save(form: any): boolean {
     if (!form.valid) {
         return false;
     }
-
-    this.formDataService.setAddress(this.capability);
-    return true;
 }
 
 goToPrevious(form: any) {
