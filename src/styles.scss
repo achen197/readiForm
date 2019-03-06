@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
-@import url("//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css");
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+$head-font: 'Rubik', sans-serif;
+$body-font: 'Roboto', sans-serif;
 
 body {
     // background-color: rgb(55, 63, 81);
@@ -26,6 +29,22 @@ body {
         letter-spacing: 1px;
     }
 }
+
+.mat-raised-button:not([class*=mat-elevation-z]) {
+    border-radius: 20px;
+    padding: 0.1rem 3rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-family: $head-font;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 2rem;
+}
+
+.email-input {
+    width: 43.3rem;
+}
+
 //Form Style End
 
 //RILIWAN RABO CSS
@@ -45,6 +64,8 @@ body {
 
 .nav-tabs {
     border: none;
+    display: flex;
+    justify-content: space-between;
 }
 
 .liner{
@@ -67,76 +88,35 @@ body {
 }
 
 span.round-tabs{
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
     display: inline-block;
     border-radius: 100px;
-    background: white;
     z-index: 2;
     position: absolute;
     left: 0;
     text-align: center;
-    font-size: 25px;
+    font-size: 1.2rem;
+    font-family: $head-font;
+    font-weight: 700;
 }
 
-span.round-tabs.one{
-    color: rgb(34, 194, 34);border: 2px solid rgb(34, 194, 34);
-}
-
-li.active span.round-tabs.one{
-    background: #fff !important;
-    border: 2px solid #ddd;
-    color: rgb(34, 194, 34);
-}
-
-span.round-tabs.two{
-    color: #febe29;border: 2px solid #febe29;
-}
-
-li.active span.round-tabs.two{
-    background: #fff !important;
-    border: 2px solid #ddd;
-    color: #febe29;
-}
-
-span.round-tabs.three{
-    color: #3e5e9a;border: 2px solid #3e5e9a;
-}
-
-li.active span.round-tabs.three{
-    background: #fff !important;
-    border: 2px solid #ddd;
-    color: #3e5e9a;
-}
-
-span.round-tabs.four{
-    color: #f1685e;border: 2px solid #f1685e;
-}
-
-li.active span.round-tabs.four{
-    background: #fff !important;
-    border: 2px solid #ddd;
-    color: #f1685e;
+span.round-tabs.one,
+span.round-tabs.two,
+span.round-tabs.three,
+span.round-tabs.four {
+    color: #3f51b5;
+    border: 2px solid #3f51b5;
 }
 
 .nav-tabs > li.active > a span.round-tabs{
     background: #fafafa;
 }
-.nav-tabs > li {
-    width: 25%;
-}
 
-.nav-tabs > li a{
-   width: 70px;
-   height: 70px;
-   margin: 20px auto;
-   border-radius: 100%;
-   padding: 0;
-}
-
-.nav-tabs > li a:hover{
-    background: transparent;
+.nav-tabs>li>a:hover {
+    border: none;
+    background: none;
 }
 
 .tab-content .tab-pane{
@@ -158,7 +138,6 @@ padding-top: 50px;
 
 .btn.green{
     background-color:#5cb85c;
-    /*border: 2px solid #5cb85c;*/
     color: #ffffff;
 }
 
@@ -228,76 +207,12 @@ left: 35%;
 }
 
 /* active buttons */
-#status-buttons a.active span.round-tabs.one { 
-    background: rgb(34, 194, 34); 
-    color: #fff
-}
-
-#status-buttons a.active span.round-tabs.two { 
-    background: #febe29; 
-    color: #fff
-}
-
-#status-buttons a.active span.round-tabs.three { 
-    background: #3e5e9a; 
-    color: #fff
-}
-
+#status-buttons a.active span.round-tabs.one,
+#status-buttons a.active span.round-tabs.two,
+#status-buttons a.active span.round-tabs.three,
 #status-buttons a.active span.round-tabs.four { 
-    background: #f1685e; 
+    background: #3f51b5; 
     color: #fff
-}
-
-
-.iradio_buttons {
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0;
-    padding: 0;
-    width: 22px;
-    height: 22px;
-    background: #febe29 no-repeat;
-    border: none;
-    cursor: pointer;
-}
-.iradio_buttons {
-    background-position: -120px 0;
-}
-.iradio_buttons.hover {
-    background-position: -144px 0;
-}
-.iradio_buttons.checked {
-    background-position: -168px 0;
 }
 
 //STYLE END
-
-//LOADING BARS START
-
-.splash {
-    position: absolute;
-    z-index: 2000;
-    background: white;
-    color: gray;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0
-}
-
-.splash-title {
-    text-align: center;
-    max-width: 500px;
-    margin: 15% auto;
-    padding: 20px
-}
-
-.splash-title h1{
-    font-size: 26px
-}
-
-.color-line {
-    border-radius:4px 4px 0 0
-}
-
-//LOADING BAR END
