@@ -1,0 +1,93 @@
+<div class="container-full">
+  <div class="row">
+    <div class="col-lg-6 placeholder-img">
+
+    </div>
+
+    <div class="col-lg-6 col-xs-12 form-q">
+
+      <nav class="navbar mb-5">
+        <a class="navbar-brand" href="#">
+          <img src="../../../assets/img/readify_logo.png" width="100" class="d-inline-block align-top" alt="">
+        </a>
+      </nav>
+
+      <mat-horizontal-stepper labelPosition="bottom" #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>About You</ng-template>
+            <mat-form-field>
+              <input matInput placeholder="First Name" formControlName="firstName" [(ngModel)]="firstName" required>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Last Name" formControlName="lastName" [(ngModel)]="lastName" required>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Email" formControlName="email" [(ngModel)]="email" required>
+            </mat-form-field>
+            <div>
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Study</ng-template>
+            <mat-form-field>
+              <input matInput placeholder="Degree" formControlName="degree" [(ngModel)]="degree" required>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="University" formControlName="university" [(ngModel)]="university" required>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="Year Graduated/Graduating" formControlName="year" [(ngModel)]="year"
+                required>
+            </mat-form-field>
+            <div>
+              <button mat-stroked-button color="primary" matStepperPrevious>Back</button>
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="thirdFormGroup">
+          <form [formGroup]="thirdFormGroup">
+            <ng-template matStepLabel>Capability</ng-template>
+
+            <mat-radio-group formControlName="capability" [(ngModel)]="capability">
+              <mat-radio-button value="Development">Development (Readify)</mat-radio-button>
+              <mat-radio-button value="Design">Design</mat-radio-button>
+              <mat-radio-button value="Data">Data</mat-radio-button>
+              <mat-radio-button value="Infrastructure">Infrastructure</mat-radio-button>
+              <mat-radio-button value="Kloud">Kloud</mat-radio-button>
+            </mat-radio-group>
+
+            <div>
+              <button mat-stroked-button color="primary" matStepperPrevious>Back</button>
+              <button mat-raised-button color="primary" matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Complete</ng-template>
+          You have successfully submitted!
+          <p>Name: {{firstName}} {{lastName}}</p>
+          <p>Email: {{email}}</p>
+          <p>Studies: {{degree}} at {{university}}</p>
+          <p>Graduated/Graduating in: {{year}}</p>
+          <p>Interested in: {{capability}}</p>
+          <div>
+            <button mat-stroked-button color="primary" matStepperPrevious>Back</button>
+            <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+
+        <ng-template matStepperIcon="person">
+          <mat-icon>person</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="chat">
+          <mat-icon>forum</mat-icon>
+        </ng-template>
+      </mat-horizontal-stepper>
+    </div>
+  </div>
+</div>

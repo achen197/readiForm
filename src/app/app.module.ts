@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -13,8 +13,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormDataService } from './form-data.service';
 import { SplashComponent } from './form/splash/splash.component';
 
-import { MatButtonModule, MatCheckboxModule, MatSelectModule,
-  MatInputModule } from '@angular/material';
+import { MatButtonModule, MatRadioModule,
+         MatInputModule, MatStepperModule,
+         MatIconModule } from '@angular/material';
+import { FormComponent } from './form/form/form.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +27,16 @@ import { MatButtonModule, MatCheckboxModule, MatSelectModule,
     ResultComponent,
     ProgressbarComponent,
     SplashComponent,
+    FormComponent,
   ],
   imports: [
-    BrowserModule, FormsModule, AppRoutingModule, BrowserAnimationsModule,
+    BrowserModule, FormsModule, AppRoutingModule, 
+    BrowserAnimationsModule, ReactiveFormsModule,
     MatButtonModule,
-    MatCheckboxModule,
-    MatSelectModule,
     MatInputModule,
+    MatStepperModule,
+    MatRadioModule,
+    MatIconModule
   ],
   providers: [{ provide: FormDataService, useClass: FormDataService }],
   bootstrap: [AppComponent]

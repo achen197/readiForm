@@ -5,6 +5,7 @@ import { DegreeComponent } from './form/degree/degree.component';
 import { CapabilitiesComponent } from './form/capabilities/capabilities.component';
 import { ResultComponent } from './form/result/result.component';
 import { SplashComponent } from './form/splash/splash.component';
+import { FormComponent } from './form/form/form.component';
 
 const routes: Routes = [
   { path: 'splash', component: SplashComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'capabilities', component: CapabilitiesComponent },
   { path: 'result', component: ResultComponent },
   { path: '', redirectTo: '/splash', pathMatch: 'full'},
+  { path: 'form', component: FormComponent },
 ]
 
 @NgModule({
