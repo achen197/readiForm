@@ -1,7 +1,7 @@
 <div class="container-full form">
   <div class="row">
     <div class="col-lg-6 placeholder-img">
-
+      <div class="overlay"></div>
     </div>
 
     <div class="col-lg-6 col-xs-12 col-sm-12 form-q">
@@ -44,7 +44,7 @@
                     width="200px" alt="">
             </div>
             <h3 class="welcome-msg text-center">Nice to meet you {{firstName}}!
-                What and where did you study?</h3>
+                What and where did you study 🎓?</h3>
             <mat-form-field>
               <input matInput placeholder="Degree" formControlName="degree" [(ngModel)]="degree" required>
             </mat-form-field>
@@ -55,8 +55,9 @@
               <input matInput type="number" placeholder="Year Graduated/Graduating" formControlName="year" [(ngModel)]="year"
                 required>
             </mat-form-field>
-            <div class="text-center">
-              <button mat-stroked-button color="primary" matStepperPrevious>Back</button>
+            <div class="text-center btn-group">
+              <button mat-stroked-button color="primary" matStepperPrevious><span style="margin-right:10px;"
+                class="glyphicon glyphicon-chevron-left"></span>Back</button>
               <button mat-raised-button color="primary" matStepperNext>Next<span style="margin-left:10px;"
                 class="glyphicon glyphicon-chevron-right"></span></button>
             </div>
@@ -65,17 +66,51 @@
         <mat-step [stepControl]="thirdFormGroup">
           <form [formGroup]="thirdFormGroup">
             <ng-template matStepLabel>Capability</ng-template>
-
+            <div class="welcome-img">
+                <img src="https://previews.123rf.com/images/tusia/tusia1608/tusia160800026/61304557-vector-drawing-of-icon-little-boy-in-the-cloud-waving-his-hand-hello-gesture-.jpg"
+                    width="200px" alt="">
+            </div>
+            <h3 class="welcome-msg text-center">Last one! Which capability are you interested in?</h3>
             <mat-radio-group formControlName="capability" [(ngModel)]="capability">
-              <mat-radio-button value="Development">Development (Readify)</mat-radio-button>
-              <mat-radio-button value="Design">Design</mat-radio-button>
-              <mat-radio-button value="Data">Data</mat-radio-button>
-              <mat-radio-button value="Infrastructure">Infrastructure</mat-radio-button>
-              <mat-radio-button value="Kloud">Kloud</mat-radio-button>
+              <mat-card>
+                <mat-radio-button value="Development">Development (Readify)
+                  <span class="radio-img">
+                    <img src="../../../assets/img/code.png" width="30px" alt="">
+                  </span>
+                </mat-radio-button>
+              </mat-card>
+              <mat-card>
+              <mat-radio-button value="Design">Design (Readify)
+                  <span class="radio-img">
+                      <img src="../../../assets/img/painting-palette.png" width="30px" alt="">
+                    </span>
+              </mat-radio-button>
+              </mat-card>
+              <mat-card>
+              <mat-radio-button value="Data">Data (Readify)
+                  <span class="radio-img">
+                      <img src="../../../assets/img/chemistry.png" width="30px" alt="">
+                    </span>
+              </mat-radio-button>
+              </mat-card>
+              <mat-card>
+              <mat-radio-button value="Infrastructure">Infrastructure (Kloud)
+                  <span class="radio-img">
+                      <img src="../../../assets/img/cloud.png" width="30px" alt="">
+                    </span>
+              </mat-radio-button>
+              </mat-card>
+              <mat-card>
+              <mat-radio-button value="Kloud">Kloud (Kloud)
+                  <span class="radio-img">
+                      <img src="../../../assets/img/cloud_rainbow.png" width="30px" alt="">
+                    </span>
+              </mat-radio-button>
+            </mat-card>
             </mat-radio-group>
 
-            <div class="text-center">
-              <button mat-stroked-button color="primary" matStepperPrevious><span style="margin-left:10px;"
+            <div class="text-center btn-group">
+              <button mat-stroked-button color="primary" matStepperPrevious><span style="margin-right:10px;"
                 class="glyphicon glyphicon-chevron-left"></span>Back</button>
               <button mat-raised-button color="primary" matStepperNext>Next<span style="margin-left:10px;"
                 class="glyphicon glyphicon-chevron-right"></span></button>
@@ -84,16 +119,16 @@
         </mat-step>
         <mat-step>
           <ng-template matStepLabel>Complete</ng-template>
-          You have successfully submitted!
+          <h3 class="welcome-msg text-center">You have successfully submitted!</h3>
           <p>Name: {{firstName}} {{lastName}}</p>
           <p>Email: {{email}}</p>
           <p>Studies: {{degree}} at {{university}}</p>
           <p>Graduated/Graduating in: {{year}}</p>
           <p>Interested in: {{capability}}</p>
           <div class="text-center">
-            <button mat-stroked-button color="primary" matStepperPrevious><span style="margin-left:10px;"
+            <button mat-stroked-button color="primary" matStepperPrevious><span style="margin-right:10px;"
                 class="glyphicon glyphicon-chevron-left"></span>Back</button>
-            <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button>
+            <button mat-raised-button color="primary">Submit</button>
           </div>
         </mat-step>
 

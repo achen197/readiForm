@@ -15,7 +15,7 @@ import { SplashComponent } from './form/splash/splash.component';
 
 import { MatButtonModule, MatRadioModule,
          MatInputModule, MatStepperModule,
-         MatIconModule } from '@angular/material';
+         MatIconModule, MatCardModule } from '@angular/material';
 import { FormComponent } from './form/form/form.component';
 
 @NgModule({
@@ -36,7 +36,7 @@ import { FormComponent } from './form/form/form.component';
     MatInputModule,
     MatStepperModule,
     MatRadioModule,
-    MatIconModule
+    MatIconModule,MatCardModule
   ],
   providers: [{ provide: FormDataService, useClass: FormDataService }],
   bootstrap: [AppComponent]

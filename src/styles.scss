@@ -9,6 +9,19 @@ $body-font: 'Roboto', sans-serif;
     padding: 0;
 }
 
+.overlay {
+    position: absolute;
+    content:"";
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: #009FFF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ec2F4B, #009FFF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ec2F4B, #009FFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    opacity: 0.5;
+}
+
 //Form Style
 .form {
     overflow: hidden;
@@ -31,6 +44,29 @@ $body-font: 'Roboto', sans-serif;
     font-weight: 700;
     letter-spacing: 1px;
     margin: 2rem;
+}
+
+.mat-radio-button {
+    display: block !important;
+}
+
+.mat-radio-label-content {
+    font-weight: 400;
+    font-size: 1.3rem;
+    font-family: $head-font;
+    display: inline-flex !important;
+    align-items: center;
+
+    .radio-img {
+        position: absolute;
+        right: 0px;
+        float: right;
+        margin-right: 2rem;
+    }
+}
+
+.mat-card {
+    margin: 1rem 0;
 }
 
 .mat-raised-button .mat-button-wrapper>*, .mat-stroked-button .mat-button-wrapper>* {
@@ -59,6 +95,7 @@ $body-font: 'Roboto', sans-serif;
 
 .placeholder-img {
     background-image: url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+    // background-image: url('../../../assets/img/form_photo.jpg');
     background-size: cover;
 }
 
@@ -88,8 +125,36 @@ $body-font: 'Roboto', sans-serif;
         overflow: auto;
     }
 
-    .placeholder-img {
+    .placeholder-img,
+    .welcome-img {
         display: none;
+    }
+
+    .welcome-msg {
+        font-weight: 400;
+        font-size: 2rem;
+        letter-spacing: 1px;
+        line-height: 3.5rem;
+        padding: 0;
+        margin-top: 0;
+    }
+
+    .mat-stepper-label-position-bottom .mat-horizontal-stepper-header .mat-step-label {
+        overflow: visible;
+        width: unset !important;
+    }
+
+    .btn-group {
+        display: inline-flex;
+    }
+
+    .mat-raised-button:not([class*=mat-elevation-z]), .mat-stroked-button:not([class*=mat-elevation-z]) {
+        margin: 1rem;
+    }
+
+    .mat-card {
+        padding: 10px 16px;
+        margin: 1.8rem 0;
     }
     
     .form-q {
