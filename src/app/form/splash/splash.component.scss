@@ -9,8 +9,6 @@
 }
 
 // Colors
-$blue: #2661f7;
-$green: #62ffd0;
 $body-font: 'Roboto', sans-serif;
 $heading-font: 'Rubik', sans-serif;
 
@@ -35,13 +33,24 @@ main {
         font-weight: 700;
         letter-spacing: 2px;
         font-size: 1.2rem;
-    }
+		
+		&:hover,
+		&:focus {
+			text-decoration: none;
+		}
+	}
 }
 
 .btn-solid {
 	background: #0fa4dc;
 	border: none;
 	border-bottom: 3px solid #0d89b7;
+	transition: 0.3s ease-in-out;
+	-webkit-transition: 0.3s ease-in-out;
+	
+	&:hover {
+		border-bottom: 0px;	
+	}
 }
 
 section {
@@ -50,75 +59,42 @@ section {
 	align-items: center;
 	justify-content: center;
 	&:nth-child(odd) {
-        background: #00aeef;
-        background-image: url("https://images.pexels.com/photos/1661004/pexels-photo-1661004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-		// opacity: 0.7;
-		background-image: -webkit-linear-gradient(30deg, #00aeef 50%, #007dab 50%);
-
-		&:hover {
-			opacity: 0.9;
-		}
+		background: #56CCF2;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(-30deg, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(-30deg, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	}
 	&:nth-child(even) {
-        background: #007dab;  
-        // background-image: url("https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-		// opacity: 0.7;
-		background-image: -webkit-linear-gradient(30deg, #013A6B 50%, #004E95 50%);
-
-		&:hover {
-			opacity: 0.9;
-		}
+		background: #56CCF2;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(30deg, #2F80ED, #56CCF2);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(30deg, #2F80ED, #56CCF2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	}
-
-
-    .overlay {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
-        width: 50%;
-        opacity: 0;
-		transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
-        background-color: #008CBA;
-		opacity: 0.5;
-		
-		&:hover {
-			width: 65%;
-			opacity: 0.15;
-		}
-	  }
-
-	  .overlay-kloud {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50vw;
-        right: 0;
-        height: 100%;
-        width: 50%;
-        opacity: 0;
-		transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
-        background-color: #008CBA;
-		opacity: 0.5;
-		
-		&:hover {
-			width: 65%;
-			opacity: 0.15;
-		}
-	  }
-	  
+  
 	  .sub-heading {
 		  text-align: center;
 	  }
       
 }
 
+.not-sure {
+	position: absolute;
+	bottom: 2rem;
+	right: 5rem;
+	
+	span {
+		font-family: $heading-font;
+		color: white;
+		font-size: 1.5rem;
+	}
+
+	a {
+		color: white;
+		text-decoration: underline;
+	}
+}
+
 @media screen and(min-width:981px) {
 	section {
         transition: all 0.4s cubic-bezier(0.61, -0.44, 0.33, 1.39);
-        // transition: ease-in-out 0.2s;
 		@for $i from 1 through 2 {
 			&:nth-child(#{$i}):hover {
 				width: 120vw;
