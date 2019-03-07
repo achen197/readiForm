@@ -74,6 +74,10 @@ $body-font: 'Roboto', sans-serif;
     margin: 1rem 0;
 }
 
+.mat-stepper-horizontal {
+    background-color: rgba(255,255,255,0.8);
+}
+
 .mat-raised-button .mat-button-wrapper>*, .mat-stroked-button .mat-button-wrapper>* {
     vertical-align: baseline !important;
 }
@@ -170,6 +174,19 @@ $body-font: 'Roboto', sans-serif;
     .capability img {
         display: none;
     }
+
+    .form-input {
+        margin-top: 8vh;
+    }
+    
+    .form-input2 {
+        margin-top: 10vh;
+    }
+    
+    .form-input3 {
+        margin-top: 4vh;
+    }
+
 }
 
 @media screen and (max-width: 980px) {
@@ -204,6 +221,24 @@ $body-font: 'Roboto', sans-serif;
     
     .form-q {
         padding: 0 3rem;
+    }
+
+    .form-input {
+        margin-top: 8vh;
+    }
+    
+    .form-input2 {
+        margin-top: 10vh;
+    }
+    
+    .form-input3 {
+        margin-top: 4vh;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .form-input3 {
+        margin-top: 0;
     }
 }
 
