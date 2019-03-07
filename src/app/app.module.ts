@@ -4,28 +4,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { PersonalComponent } from './form/personal/personal.component';
-import { DegreeComponent } from './form/degree/degree.component';
-import { CapabilitiesComponent } from './form/capabilities/capabilities.component';
-import { ResultComponent } from './form/result/result.component';
-import { ProgressbarComponent } from './form/progressbar/progressbar.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FormDataService } from './form-data.service';
+import { FormComponent } from './form/form/form.component';
 import { SplashComponent } from './form/splash/splash.component';
 
 import { MatButtonModule, MatRadioModule,
          MatInputModule, MatStepperModule,
          MatIconModule, MatCardModule } from '@angular/material';
-import { FormComponent } from './form/form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PersonalComponent,
-    DegreeComponent,
-    CapabilitiesComponent,
-    ResultComponent,
-    ProgressbarComponent,
     SplashComponent,
     FormComponent,
   ],
@@ -38,7 +27,7 @@ import { FormComponent } from './form/form/form.component';
     MatRadioModule,
     MatIconModule,MatCardModule
   ],
-  providers: [{ provide: FormDataService, useClass: FormDataService }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

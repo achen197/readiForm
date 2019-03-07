@@ -7,13 +7,8 @@ import { FormDataService } from 'src/app/form-data.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  @Input() formData;
-  title = "yeet";
 
-  constructor(private formDataService: FormDataService) {}
+  constructor() {}
 
-  ngOnInit() {
-    // this.formData = this.formDataService.getFormData();
-    console.log(this.title + ' loaded!');
-}
+  ngOnInit() {}
 }
