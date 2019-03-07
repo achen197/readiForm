@@ -63,7 +63,7 @@
           <form [formGroup]="thirdFormGroup" class="form-input3">
             <ng-template matStepLabel>Capability</ng-template>
             <h3 class="welcome-msg">Last one! Which capability are you interested in?</h3>
-            <mat-radio-group formControlName="capability" [(ngModel)]="capability">
+            <!-- <mat-radio-group formControlName="capability" [(ngModel)]="capability">
               <mat-card>
                 <mat-checkbox value="Development">Development (Readify)
                   <span class="radio-img">
@@ -99,7 +99,14 @@
                     </span>
               </mat-checkbox>
             </mat-card>
-            </mat-radio-group>
+            </mat-radio-group> -->
+
+            <mat-selection-list #Areas>
+                <mat-list-option *ngFor="let a of areas">
+                  {{a}}
+                </mat-list-option>
+              </mat-selection-list>
+  <p>selected: {{a}}</p>
 
             <div class="btn-right">
               <button mat-stroked-button color="primary" matStepperPrevious><span style="margin-right:10px;"
@@ -117,8 +124,9 @@
           <img src="../../../assets/img/partyparrot.gif" alt="Party Parrot" width="30px">          
         </div>
           <p>Name: {{firstName}} {{lastName}}</p>
+          <p>Phone Number: {{number}}</p>
           <p>Email: {{email}}</p>
-          <p>Studies: {{degree}} at {{university}}</p>
+          <p>Study: {{degree}} at {{university}}</p>
           <p>Graduated/Graduating in: {{year}}</p>
           <p>Interested in: {{capability}}</p>
           <div class="btn-right">

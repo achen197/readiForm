@@ -12,7 +12,7 @@ import { MatButtonModule, MatRadioModule,
          MatInputModule, MatStepperModule,
          MatIconModule, MatCardModule,
          MatBottomSheetModule,
-         MatCheckboxModule } from '@angular/material';
+         MatCheckboxModule, MatListModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { MatButtonModule, MatRadioModule,
     MatRadioModule,
     MatIconModule,
     MatCardModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

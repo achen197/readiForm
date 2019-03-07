@@ -12,22 +12,13 @@ import {MatBottomSheet, MatBottomSheetRef} from '@angular/material';
   }]
 })
 
-// @Component({
-//   selector: 'role-details',
-//   templateUrl: 'role-details.html',
-// })
-// export class RoleDetails {
-//   constructor(private bottomSheetRef: MatBottomSheetRef<RoleDetails>) {}
-
-//   openLink(event: MouseEvent): void {
-//     this.bottomSheetRef.dismiss();
-//     event.preventDefault();
-//   }
-// }
 export class FormComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
+  areas: string[] = ['Development (Readify)', 'Data (Readify)', 'Design (Readify)', 'Infrastructure (Kloud)', 'Kloud'];
+  selectedOptions=[];
+  selectedOption;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -48,5 +39,11 @@ export class FormComponent implements OnInit {
     this.thirdFormGroup = this._formBuilder.group({
       capability: ['', Validators.required],
     });
+  }
+
+  onNgModelChange($event){
+    console.log($event);
+    this.selectedOption=$event;
+    
   }
 }
