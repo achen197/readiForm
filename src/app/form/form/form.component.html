@@ -28,6 +28,9 @@
             <mat-form-field>
               <input matInput placeholder="Email" formControlName="email" [(ngModel)]="email" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$">
             </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Phone Number" formControlName="number" [(ngModel)]="number" required pattern="^[0-9]*$">
+              </mat-form-field>
             <div class="btn-right">
               <button mat-raised-button color="primary" matStepperNext>Next<span style="margin-left:10px;" class="glyphicon glyphicon-chevron-right"></span></button>
             </div>
@@ -76,8 +79,8 @@
               </mat-radio-button>
               </mat-card>
               <mat-card>
-              <mat-radio-button value="Data">Data (Readify)
-                  <span class="radio-img">
+              <mat-radio-button class="material-icons" value="Data">Data (Readify)
+                  <span class="radio-img material-icons">
                       <img src="../../../assets/img/chemistry.png" width="30px" alt="">
                     </span>
               </mat-radio-button>
