@@ -14,12 +14,9 @@
 
       <mat-horizontal-stepper labelPosition="bottom" #stepper>
         <mat-step [stepControl]="firstFormGroup" state="person">
-          <form [formGroup]="firstFormGroup">
+          <form [formGroup]="firstFormGroup" class="form-input">
             <ng-template matStepLabel>About You</ng-template>
-            <div class="welcome-img">
-                <img src="https://previews.123rf.com/images/tusia/tusia1608/tusia160800026/61304557-vector-drawing-of-icon-little-boy-in-the-cloud-waving-his-hand-hello-gesture-.jpg" width="200px" alt="">
-            </div>
-              <h3 class="text-center welcome-msg">Hey there 👋! Thanks for choosing Readify, we'll just need to
+              <h3 class="welcome-msg">Hey there 👋! Thanks for choosing Readify, we'll just need to
                 grab a few details from you.
               </h3>
             <mat-form-field>
@@ -31,7 +28,7 @@
             <mat-form-field>
               <input matInput placeholder="Email" formControlName="email" [(ngModel)]="email" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$">
             </mat-form-field>
-            <div class="text-center">
+            <div class="btn-right">
               <button mat-raised-button color="primary" matStepperNext>Next<span style="margin-left:10px;" class="glyphicon glyphicon-chevron-right"></span></button>
             </div>
           </form>
@@ -39,11 +36,7 @@
         <mat-step [stepControl]="secondFormGroup" state="school">
           <form [formGroup]="secondFormGroup">
             <ng-template matStepLabel>Study</ng-template>
-            <div class="welcome-img">
-                <img src="https://previews.123rf.com/images/tusia/tusia1608/tusia160800026/61304557-vector-drawing-of-icon-little-boy-in-the-cloud-waving-his-hand-hello-gesture-.jpg"
-                    width="200px" alt="">
-            </div>
-            <h3 class="welcome-msg text-center">Nice to meet you {{firstName}}!
+            <h3 class="welcome-msg">Nice to meet you {{firstName}}!
                 What and where did you study 🎓?</h3>
             <mat-form-field>
               <input matInput placeholder="Degree" formControlName="degree" [(ngModel)]="degree" required>
@@ -55,7 +48,7 @@
               <input matInput type="number" placeholder="Year Graduated/Graduating" formControlName="year" [(ngModel)]="year"
                 required pattern="^(20)\d{2}$">
             </mat-form-field>
-            <div class="text-center btn-group">
+            <div class="btn-group">
               <button mat-stroked-button color="primary" matStepperPrevious><span style="margin-right:10px;"
                 class="glyphicon glyphicon-chevron-left"></span>Back</button>
               <button mat-raised-button color="primary" matStepperNext>Next<span style="margin-left:10px;"
@@ -66,11 +59,7 @@
         <mat-step [stepControl]="thirdFormGroup" state="clear_all">
           <form [formGroup]="thirdFormGroup">
             <ng-template matStepLabel>Capability</ng-template>
-            <div class="welcome-img capability">
-                <img src="https://previews.123rf.com/images/tusia/tusia1608/tusia160800026/61304557-vector-drawing-of-icon-little-boy-in-the-cloud-waving-his-hand-hello-gesture-.jpg"
-                    width="200px" alt="">
-            </div>
-            <h3 class="welcome-msg text-center">Last one! Which capability are you interested in?</h3>
+            <h3 class="welcome-msg">Last one! Which capability are you interested in?</h3>
             <mat-radio-group formControlName="capability" [(ngModel)]="capability">
               <mat-card>
                 <mat-radio-button value="Development">Development (Readify)
@@ -109,7 +98,7 @@
             </mat-card>
             </mat-radio-group>
 
-            <div class="text-center btn-group">
+            <div class="btn-group">
               <button mat-stroked-button color="primary" matStepperPrevious><span style="margin-right:10px;"
                 class="glyphicon glyphicon-chevron-left"></span>Back</button>
               <button mat-raised-button color="primary" matStepperNext>Next<span style="margin-left:10px;"
@@ -119,7 +108,7 @@
         </mat-step>
         <mat-step state="review">
           <ng-template matStepLabel>Complete</ng-template>
-          <h3 class="welcome-msg text-center">You have successfully submitted!</h3>
+          <h3 class="welcome-msg">You have successfully submitted!</h3>
           <p>Name: {{firstName}} {{lastName}}</p>
           <p>Email: {{email}}</p>
           <p>Studies: {{degree}} at {{university}}</p>
