@@ -51,11 +51,12 @@ $body-font: 'Roboto', sans-serif;
     text-align: right;
 }
 
-.mat-radio-button {
+.mat-checkbox-button {
     display: block !important;
 }
 
-.mat-radio-label-content {
+.mat-checkbox-label,
+.mat-label {
     font-weight: 400;
     font-size: 1.3rem;
     font-family: $head-font;
@@ -67,6 +68,12 @@ $body-font: 'Roboto', sans-serif;
         right: 0px;
         float: right;
         margin-right: 2rem;
+        // display: inline-flex;
+    }
+
+    ::before {
+        content: '\e88f';
+        display: inline-flex;
     }
 }
 
