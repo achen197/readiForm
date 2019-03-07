@@ -13,7 +13,7 @@
       </nav>
 
       <mat-horizontal-stepper labelPosition="bottom" #stepper>
-        <mat-step [stepControl]="firstFormGroup">
+        <mat-step [stepControl]="firstFormGroup" state="person">
           <form [formGroup]="firstFormGroup">
             <ng-template matStepLabel>About You</ng-template>
             <div class="welcome-img">
@@ -29,14 +29,14 @@
               <input matInput placeholder="Last Name" formControlName="lastName" [(ngModel)]="lastName" required>
             </mat-form-field>
             <mat-form-field>
-              <input matInput placeholder="Email" formControlName="email" [(ngModel)]="email" required>
+              <input matInput placeholder="Email" formControlName="email" [(ngModel)]="email" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$">
             </mat-form-field>
             <div class="text-center">
               <button mat-raised-button color="primary" matStepperNext>Next<span style="margin-left:10px;" class="glyphicon glyphicon-chevron-right"></span></button>
             </div>
           </form>
         </mat-step>
-        <mat-step [stepControl]="secondFormGroup">
+        <mat-step [stepControl]="secondFormGroup" state="school">
           <form [formGroup]="secondFormGroup">
             <ng-template matStepLabel>Study</ng-template>
             <div class="welcome-img">
@@ -53,7 +53,7 @@
             </mat-form-field>
             <mat-form-field>
               <input matInput type="number" placeholder="Year Graduated/Graduating" formControlName="year" [(ngModel)]="year"
-                required>
+                required pattern="^(20)\d{2}$">
             </mat-form-field>
             <div class="text-center btn-group">
               <button mat-stroked-button color="primary" matStepperPrevious><span style="margin-right:10px;"
@@ -63,10 +63,10 @@
             </div>
           </form>
         </mat-step>
-        <mat-step [stepControl]="thirdFormGroup">
+        <mat-step [stepControl]="thirdFormGroup" state="clear_all">
           <form [formGroup]="thirdFormGroup">
             <ng-template matStepLabel>Capability</ng-template>
-            <div class="welcome-img">
+            <div class="welcome-img capability">
                 <img src="https://previews.123rf.com/images/tusia/tusia1608/tusia160800026/61304557-vector-drawing-of-icon-little-boy-in-the-cloud-waving-his-hand-hello-gesture-.jpg"
                     width="200px" alt="">
             </div>
@@ -117,7 +117,7 @@
             </div>
           </form>
         </mat-step>
-        <mat-step>
+        <mat-step state="review">
           <ng-template matStepLabel>Complete</ng-template>
           <h3 class="welcome-msg text-center">You have successfully submitted!</h3>
           <p>Name: {{firstName}} {{lastName}}</p>
@@ -135,9 +135,15 @@
         <ng-template matStepperIcon="person">
           <mat-icon>person</mat-icon>
         </ng-template>
-        <ng-template matStepperIcon="chat">
-          <mat-icon>forum</mat-icon>
+        <ng-template matStepperIcon="school">
+          <mat-icon>school</mat-icon>
         </ng-template>
+        <ng-template matStepperIcon="storage">
+            <mat-icon>storage</mat-icon>
+          </ng-template>
+          <ng-template matStepperIcon="review">
+              <mat-icon>assignment_turned_in</mat-icon>
+            </ng-template>
       </mat-horizontal-stepper>
     </div>
   </div>

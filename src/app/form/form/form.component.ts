@@ -14,7 +14,6 @@ export class FormComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
 
-
   constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit() {
@@ -31,5 +30,12 @@ export class FormComponent implements OnInit {
     this.thirdFormGroup = this._formBuilder.group({
       capability: ['', Validators.required],
     });
+  }
+
+  getErrorMessage() {
+    // return this.firstFormGroup.hasError('required') ? 'You must enter a value' :
+    //     this.firstFormGroup.hasError('email') ? 'Not a valid email' :
+    //         '';
+    console.log("ERROR YALL");
   }
 }

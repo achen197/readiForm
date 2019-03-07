@@ -77,7 +77,9 @@ $body-font: 'Roboto', sans-serif;
     font-family: $head-font;
     font-size: 1.4rem;
     color: #555;
-    letter-spacing: 1px;
+    letter-spacing: 1px;        
+    overflow: visible;
+    width: unset !important;
 }
 
 .mat-form-field {
@@ -86,7 +88,7 @@ $body-font: 'Roboto', sans-serif;
 
 .welcome-msg {
     font-family:$head-font;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 2.5rem;
     letter-spacing: 1px;
     line-height: 4rem;
@@ -94,9 +96,9 @@ $body-font: 'Roboto', sans-serif;
 }
 
 .placeholder-img {
-    background-image: url("https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
-    // background-image: url('../../../assets/img/form_photo.jpg');
+    background-image: url('assets/img/form_photo.jpg');
     background-size: cover;
+    background-position-x: -28rem;
 }
 
 .placeholder-img,
@@ -120,6 +122,28 @@ $body-font: 'Roboto', sans-serif;
 
 //MEDIA QUERIES
 
+@media screen and (max-width: 1024px) {
+    .form-q {
+        padding: 0 3rem;
+    }
+
+    .welcome-msg {
+        padding: 0;
+    }
+
+    .welcome-img img {
+        width: 150px;
+    }
+
+    .btn-group {
+        display: block;
+    }
+
+    .capability img {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 980px) {
     .form {
         overflow: auto;
@@ -131,17 +155,10 @@ $body-font: 'Roboto', sans-serif;
     }
 
     .welcome-msg {
-        font-weight: 400;
         font-size: 2rem;
         letter-spacing: 1px;
         line-height: 3.5rem;
-        padding: 0;
         margin-top: 0;
-    }
-
-    .mat-stepper-label-position-bottom .mat-horizontal-stepper-header .mat-step-label {
-        overflow: visible;
-        width: unset !important;
     }
 
     .btn-group {
@@ -154,7 +171,7 @@ $body-font: 'Roboto', sans-serif;
 
     .mat-card {
         padding: 10px 16px;
-        margin: 1.8rem 0;
+        margin: 1rem 0;
     }
     
     .form-q {
