@@ -26,6 +26,7 @@ export class FormComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
+    private bottomSheet: MatBottomSheet
     ) {}
 
   ngOnInit() {
@@ -58,4 +59,22 @@ export class FormComponent implements OnInit {
     this.submitted = !this.submitted;
   }
 
+
+  openBottomSheet(): void {
+    this.bottomSheet.open(BottomSheetOverviewExampleSheet);
+  }
+
+}
+
+@Component({
+  selector: 'app-form',
+  templateUrl: 'role-desc.html',
+})
+export class BottomSheetOverviewExampleSheet {
+  constructor(private bottomSheetRef: MatBottomSheetRef<BottomSheetOverviewExampleSheet>) {}
+
+  openLink(event: MouseEvent): void {
+    this.bottomSheetRef.dismiss();
+    event.preventDefault();
+  }
 }

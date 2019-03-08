@@ -5,20 +5,22 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FormComponent } from './form/form/form.component';
+import { FormComponent, BottomSheetOverviewExampleSheet } from './form/form/form.component';
 import { SplashComponent } from './form/splash/splash.component';
 
 import { MatButtonModule, MatRadioModule,
          MatInputModule, MatStepperModule,
          MatIconModule, MatCardModule,
          MatBottomSheetModule, MatSelectModule,
-         MatCheckboxModule, MatListModule } from '@angular/material';
+         MatCheckboxModule, MatListModule,
+         MatExpansionModule } from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
     SplashComponent,
     FormComponent,
+    BottomSheetOverviewExampleSheet
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule, 
@@ -31,8 +33,11 @@ import { MatButtonModule, MatRadioModule,
     MatCardModule,
     MatCheckboxModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatBottomSheetModule,
+    MatExpansionModule
   ],
+  entryComponents: [FormComponent, BottomSheetOverviewExampleSheet],
   providers: [],
   bootstrap: [AppComponent]
 })
