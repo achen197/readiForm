@@ -11,7 +11,7 @@ import { SplashComponent } from './form/splash/splash.component';
 import { MatButtonModule, MatRadioModule,
          MatInputModule, MatStepperModule,
          MatIconModule, MatCardModule,
-         MatBottomSheetModule,
+         MatBottomSheetModule, MatSelectModule,
          MatCheckboxModule, MatListModule } from '@angular/material';
 
 @NgModule({
@@ -30,7 +30,8 @@ import { MatButtonModule, MatRadioModule,
     MatIconModule,
     MatCardModule,
     MatCheckboxModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

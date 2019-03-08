@@ -135,10 +135,19 @@ $body-font: 'Roboto', sans-serif;
     border-radius: 100px;
 }
 
-// .mat-stepper-label-position-bottom .mat-horizontal-stepper-header-container {
-//     position: absolute;
-//     bottom: 6vh;
-// }
+.alert img {
+    display: unset;
+    vertical-align: baseline;
+    margin-left: 0.8rem;
+}
+
+.mat-radio-button {
+    margin-right: 4rem;
+}
+
+.mat-radio-label-content {
+    font-weight: 400;
+}
 
 .form-input {
     margin-top: 12vh;
@@ -153,10 +162,14 @@ $body-font: 'Roboto', sans-serif;
 }
 
 .party {
-    h3:after {
-        background: url(./assets/img/partyparrot.gif); 
-    }
+    margin-top: 18vh;
 }
+
+.state {
+    font-size: 1.4rem;
+    margin-top: 0;
+}
+
 //Form Style End
 
 //MEDIA QUERIES

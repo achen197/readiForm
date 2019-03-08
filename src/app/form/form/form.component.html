@@ -3,22 +3,19 @@
     <div class="col-lg-6 placeholder-img">
       <div class="overlay"></div>
     </div>
-
     <div class="col-lg-6 col-md-12 col-xs-12 col-sm-12 form-q">
-
       <nav class="navbar mb-4">
         <a class="navbar-brand" href="#">
           <img src="../../../assets/img/Readify_black_logo.png" width="100" class="d-inline-block align-top" alt="">
         </a>
       </nav>
-
       <mat-horizontal-stepper labelPosition="bottom" #stepper>
         <mat-step [stepControl]="firstFormGroup" state="person">
           <form [formGroup]="firstFormGroup" class="form-input">
             <ng-template matStepLabel>About You</ng-template>
-              <h3 class="welcome-msg">Hey there 👋! Thanks for choosing Readify, we'll just need to
-                grab a few details from you.
-              </h3>
+            <h3 class="welcome-msg">Hey there 👋! Thanks for choosing Readify, we'll just need to
+              grab a few details from you.
+            </h3>
             <mat-form-field>
               <input matInput placeholder="First Name" formControlName="firstName" [(ngModel)]="firstName" required>
             </mat-form-field>
@@ -26,13 +23,30 @@
               <input matInput placeholder="Last Name" formControlName="lastName" [(ngModel)]="lastName" required>
             </mat-form-field>
             <mat-form-field>
-              <input matInput placeholder="Email" formControlName="email" [(ngModel)]="email" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$">
+              <input matInput placeholder="Email" formControlName="email" [(ngModel)]="email" required
+                pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$">
             </mat-form-field>
             <mat-form-field>
-                <input matInput placeholder="Phone Number" formControlName="number" [(ngModel)]="number" required pattern="^[0-9]*$">
+              <input matInput placeholder="Phone Number" formControlName="number" [(ngModel)]="number" required
+                pattern="^[0-9]*$">
+            </mat-form-field>
+            <mat-form-field>
+                <h4 class="state">Preferred State</h4>
+                <mat-select [(value)]="state">
+                  <mat-option>None</mat-option>
+                  <mat-option value="QLD">QLD</mat-option>
+                  <mat-option value="NSW">NSW</mat-option>
+                  <mat-option value="VIC">VIC</mat-option>
+                  <mat-option value="WA">WA</mat-option>
+                </mat-select>
               </mat-form-field>
+              <mat-radio-group [(ngModel)]="rightToWork" [ngModelOptions]="{standalone: true}">
+                  <h4 class="state">Do you have the right to work in Australia</h4>
+                  <mat-radio-button *ngFor="let option of options" [value]="option">{{option}}</mat-radio-button>
+                </mat-radio-group>
             <div class="btn-right">
-              <button mat-raised-button color="primary" matStepperNext>Next<span style="margin-left:10px;" class="glyphicon glyphicon-chevron-right"></span></button>
+              <button mat-raised-button color="primary" matStepperNext>Next<span style="margin-left:10px;"
+                  class="glyphicon glyphicon-chevron-right"></span></button>
             </div>
           </form>
         </mat-step>
@@ -40,7 +54,7 @@
           <form [formGroup]="secondFormGroup" class="form-input2">
             <ng-template matStepLabel>Study</ng-template>
             <h3 class="welcome-msg">Nice to meet you {{firstName}}!
-                What and where did you study 🎓?</h3>
+              What and where did you study 🎓?</h3>
             <mat-form-field>
               <input matInput placeholder="Degree" formControlName="degree" [(ngModel)]="degree" required>
             </mat-form-field>
@@ -48,14 +62,14 @@
               <input matInput placeholder="University" formControlName="university" [(ngModel)]="university" required>
             </mat-form-field>
             <mat-form-field>
-              <input matInput type="number" placeholder="Year Graduated/Graduating" formControlName="year" [(ngModel)]="year"
-                required pattern="^(20)\d{2}$">
+              <input matInput type="number" placeholder="Year Graduated/Graduating" formControlName="year"
+                [(ngModel)]="year" required pattern="^(20)\d{2}$">
             </mat-form-field>
             <div class="btn-right">
               <button mat-stroked-button color="primary" matStepperPrevious><span style="margin-right:10px;"
-                class="glyphicon glyphicon-chevron-left"></span>Back</button>
+                  class="glyphicon glyphicon-chevron-left"></span>Back</button>
               <button class="ml-4" mat-raised-button color="primary" matStepperNext>Next<span style="margin-left:10px;"
-                class="glyphicon glyphicon-chevron-right"></span></button>
+                  class="glyphicon glyphicon-chevron-right"></span></button>
             </div>
           </form>
         </mat-step>
@@ -63,229 +77,199 @@
           <form [formGroup]="thirdFormGroup" class="form-input3">
             <ng-template matStepLabel>Capability</ng-template>
             <h3 class="welcome-msg">Last one! Which capability are you interested in?</h3>
-            <!-- <mat-radio-group formControlName="capability" [(ngModel)]="capability">
-              <mat-card>
-                <mat-checkbox value="Development">Development (Readify)
-                  <span class="radio-img">
-                    <img src="../../../assets/img/code.png" width="30px" alt="">
-                  </span>
-                </mat-checkbox>
-              </mat-card>
-              <mat-card>
-              <mat-checkbox value="Design">Design (Readify)
-                  <span class="radio-img">
-                      <img src="../../../assets/img/painting-palette.png" width="30px" alt="">
-                    </span>
-              </mat-checkbox>
-              </mat-card>
-              <mat-card>
-              <mat-checkbox class="material-icons" value="Data">Data (Readify)
-                  <span class="radio-img material-icons">
-                      <img src="../../../assets/img/chemistry.png" width="30px" alt="">
-                    </span>
-              </mat-checkbox>
-              </mat-card>
-              <mat-card>
-              <mat-checkbox value="Infrastructure">Infrastructure (Kloud)
-                  <span class="radio-img">
-                      <img src="../../../assets/img/cloud.png" width="30px" alt="">
-                    </span>
-              </mat-checkbox>
-              </mat-card>
-              <mat-card>
-              <mat-checkbox value="Kloud">Kloud (Kloud)
-                  <span class="radio-img">
-                      <img src="../../../assets/img/cloud_rainbow.png" width="30px" alt="">
-                    </span>
-              </mat-checkbox>
-            </mat-card>
-            </mat-radio-group> -->
 
-            <mat-selection-list #Areas>
-                <mat-list-option *ngFor="let a of areas">
-                  {{a}}
-                </mat-list-option>
-              </mat-selection-list>
-  <p>selected: {{a}}</p>
+            <mat-selection-list #area (selectionChange)="onGroupsChange(area.selectedOptions.selected)">
+              <mat-list-option *ngFor="let a of areas" [value]="area">
+                {{a}}
+              </mat-list-option>
+            </mat-selection-list>
+
+            <p>
+              Options selected: {{area.selectedOptions.selected.length}}
+            </p>
+            <p>{{area}}</p>
 
             <div class="btn-right">
               <button mat-stroked-button color="primary" matStepperPrevious><span style="margin-right:10px;"
-                class="glyphicon glyphicon-chevron-left"></span>Back</button>
+                  class="glyphicon glyphicon-chevron-left"></span>Back</button>
               <button class="ml-4" mat-raised-button color="primary" matStepperNext>Next<span style="margin-left:10px;"
-                class="glyphicon glyphicon-chevron-right"></span></button>
+                  class="glyphicon glyphicon-chevron-right"></span></button>
             </div>
           </form>
         </mat-step>
         <mat-step state="review">
           <ng-template matStepLabel>Complete</ng-template>
           <div class="party">
-          <h3 class="welcome-msg form-input2">You have successfully submitted!
-          </h3>
-          <img src="../../../assets/img/partyparrot.gif" alt="Party Parrot" width="30px">          
-        </div>
+            <div class="alert alert-primary" role="alert" *ngIf="submitted">
+              <span>You have succesfully submitted!</span>
+              <img src="../../../assets/img/partyparrot.gif" alt="Party Parrot" width="30px">
+            </div>
+          </div>
           <p>Name: {{firstName}} {{lastName}}</p>
           <p>Phone Number: {{number}}</p>
           <p>Email: {{email}}</p>
+          <p>Preferred State of Work: {{state}}</p>
+          <p>Right to work in Australia: {{rightToWork}}</p>
           <p>Study: {{degree}} at {{university}}</p>
           <p>Graduated/Graduating in: {{year}}</p>
           <p>Interested in: {{capability}}</p>
           <div class="btn-right">
             <button mat-stroked-button color="primary" matStepperPrevious><span style="margin-right:10px;"
                 class="glyphicon glyphicon-chevron-left"></span>Back</button>
-            <button class="ml-4" mat-raised-button color="primary">Submit</button>
+            <button class="ml-4" mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
           </div>
-          <div class="wrapper-confetti">
-              <div class="confetti-149"></div>
-              <div class="confetti-148"></div>
-              <div class="confetti-147"></div>
-              <div class="confetti-146"></div>
-              <div class="confetti-145"></div>
-              <div class="confetti-144"></div>
-              <div class="confetti-143"></div>
-              <div class="confetti-142"></div>
-              <div class="confetti-141"></div>
-              <div class="confetti-140"></div>
-              <div class="confetti-139"></div>
-              <div class="confetti-138"></div>
-              <div class="confetti-137"></div>
-              <div class="confetti-136"></div>
-              <div class="confetti-135"></div>
-              <div class="confetti-134"></div>
-              <div class="confetti-133"></div>
-              <div class="confetti-132"></div>
-              <div class="confetti-131"></div>
-              <div class="confetti-130"></div>
-              <div class="confetti-129"></div>
-              <div class="confetti-128"></div>
-              <div class="confetti-127"></div>
-              <div class="confetti-126"></div>
-              <div class="confetti-125"></div>
-              <div class="confetti-124"></div>
-              <div class="confetti-123"></div>
-              <div class="confetti-122"></div>
-              <div class="confetti-121"></div>
-              <div class="confetti-120"></div>
-              <div class="confetti-119"></div>
-              <div class="confetti-118"></div>
-              <div class="confetti-117"></div>
-              <div class="confetti-116"></div>
-              <div class="confetti-115"></div>
-              <div class="confetti-114"></div>
-              <div class="confetti-113"></div>
-              <div class="confetti-112"></div>
-              <div class="confetti-111"></div>
-              <div class="confetti-110"></div>
-              <div class="confetti-109"></div>
-              <div class="confetti-108"></div>
-              <div class="confetti-107"></div>
-              <div class="confetti-106"></div>
-              <div class="confetti-105"></div>
-              <div class="confetti-104"></div>
-              <div class="confetti-103"></div>
-              <div class="confetti-102"></div>
-              <div class="confetti-101"></div>
-              <div class="confetti-100"></div>
-              <div class="confetti-99"></div>
-              <div class="confetti-98"></div>
-              <div class="confetti-97"></div>
-              <div class="confetti-96"></div>
-              <div class="confetti-95"></div>
-              <div class="confetti-94"></div>
-              <div class="confetti-93"></div>
-              <div class="confetti-92"></div>
-              <div class="confetti-91"></div>
-              <div class="confetti-90"></div>
-              <div class="confetti-89"></div>
-              <div class="confetti-88"></div>
-              <div class="confetti-87"></div>
-              <div class="confetti-86"></div>
-              <div class="confetti-85"></div>
-              <div class="confetti-84"></div>
-              <div class="confetti-83"></div>
-              <div class="confetti-82"></div>
-              <div class="confetti-81"></div>
-              <div class="confetti-80"></div>
-              <div class="confetti-79"></div>
-              <div class="confetti-78"></div>
-              <div class="confetti-77"></div>
-              <div class="confetti-76"></div>
-              <div class="confetti-75"></div>
-              <div class="confetti-74"></div>
-              <div class="confetti-73"></div>
-              <div class="confetti-72"></div>
-              <div class="confetti-71"></div>
-              <div class="confetti-70"></div>
-              <div class="confetti-69"></div>
-              <div class="confetti-68"></div>
-              <div class="confetti-67"></div>
-              <div class="confetti-66"></div>
-              <div class="confetti-65"></div>
-              <div class="confetti-64"></div>
-              <div class="confetti-63"></div>
-              <div class="confetti-62"></div>
-              <div class="confetti-61"></div>
-              <div class="confetti-60"></div>
-              <div class="confetti-59"></div>
-              <div class="confetti-58"></div>
-              <div class="confetti-57"></div>
-              <div class="confetti-56"></div>
-              <div class="confetti-55"></div>
-              <div class="confetti-54"></div>
-              <div class="confetti-53"></div>
-              <div class="confetti-52"></div>
-              <div class="confetti-51"></div>
-              <div class="confetti-50"></div>
-              <div class="confetti-49"></div>
-              <div class="confetti-48"></div>
-              <div class="confetti-47"></div>
-              <div class="confetti-46"></div>
-              <div class="confetti-45"></div>
-              <div class="confetti-44"></div>
-              <div class="confetti-43"></div>
-              <div class="confetti-42"></div>
-              <div class="confetti-41"></div>
-              <div class="confetti-40"></div>
-              <div class="confetti-39"></div>
-              <div class="confetti-38"></div>
-              <div class="confetti-37"></div>
-              <div class="confetti-36"></div>
-              <div class="confetti-35"></div>
-              <div class="confetti-34"></div>
-              <div class="confetti-33"></div>
-              <div class="confetti-32"></div>
-              <div class="confetti-31"></div>
-              <div class="confetti-30"></div>
-              <div class="confetti-29"></div>
-              <div class="confetti-28"></div>
-              <div class="confetti-27"></div>
-              <div class="confetti-26"></div>
-              <div class="confetti-25"></div>
-              <div class="confetti-24"></div>
-              <div class="confetti-23"></div>
-              <div class="confetti-22"></div>
-              <div class="confetti-21"></div>
-              <div class="confetti-20"></div>
-              <div class="confetti-19"></div>
-              <div class="confetti-18"></div>
-              <div class="confetti-17"></div>
-              <div class="confetti-16"></div>
-              <div class="confetti-15"></div>
-              <div class="confetti-14"></div>
-              <div class="confetti-13"></div>
-              <div class="confetti-12"></div>
-              <div class="confetti-11"></div>
-              <div class="confetti-10"></div>
-              <div class="confetti-9"></div>
-              <div class="confetti-8"></div>
-              <div class="confetti-7"></div>
-              <div class="confetti-6"></div>
-              <div class="confetti-5"></div>
-              <div class="confetti-4"></div>
-              <div class="confetti-3"></div>
-              <div class="confetti-2"></div>
-              <div class="confetti-1"></div>
-              <div class="confetti-0"></div>
-                    </div>
+          <div class="wrapper-confetti" *ngIf="submitted">
+            <div class="confetti-149"></div>
+            <div class="confetti-148"></div>
+            <div class="confetti-147"></div>
+            <div class="confetti-146"></div>
+            <div class="confetti-145"></div>
+            <div class="confetti-144"></div>
+            <div class="confetti-143"></div>
+            <div class="confetti-142"></div>
+            <div class="confetti-141"></div>
+            <div class="confetti-140"></div>
+            <div class="confetti-139"></div>
+            <div class="confetti-138"></div>
+            <div class="confetti-137"></div>
+            <div class="confetti-136"></div>
+            <div class="confetti-135"></div>
+            <div class="confetti-134"></div>
+            <div class="confetti-133"></div>
+            <div class="confetti-132"></div>
+            <div class="confetti-131"></div>
+            <div class="confetti-130"></div>
+            <div class="confetti-129"></div>
+            <div class="confetti-128"></div>
+            <div class="confetti-127"></div>
+            <div class="confetti-126"></div>
+            <div class="confetti-125"></div>
+            <div class="confetti-124"></div>
+            <div class="confetti-123"></div>
+            <div class="confetti-122"></div>
+            <div class="confetti-121"></div>
+            <div class="confetti-120"></div>
+            <div class="confetti-119"></div>
+            <div class="confetti-118"></div>
+            <div class="confetti-117"></div>
+            <div class="confetti-116"></div>
+            <div class="confetti-115"></div>
+            <div class="confetti-114"></div>
+            <div class="confetti-113"></div>
+            <div class="confetti-112"></div>
+            <div class="confetti-111"></div>
+            <div class="confetti-110"></div>
+            <div class="confetti-109"></div>
+            <div class="confetti-108"></div>
+            <div class="confetti-107"></div>
+            <div class="confetti-106"></div>
+            <div class="confetti-105"></div>
+            <div class="confetti-104"></div>
+            <div class="confetti-103"></div>
+            <div class="confetti-102"></div>
+            <div class="confetti-101"></div>
+            <div class="confetti-100"></div>
+            <div class="confetti-99"></div>
+            <div class="confetti-98"></div>
+            <div class="confetti-97"></div>
+            <div class="confetti-96"></div>
+            <div class="confetti-95"></div>
+            <div class="confetti-94"></div>
+            <div class="confetti-93"></div>
+            <div class="confetti-92"></div>
+            <div class="confetti-91"></div>
+            <div class="confetti-90"></div>
+            <div class="confetti-89"></div>
+            <div class="confetti-88"></div>
+            <div class="confetti-87"></div>
+            <div class="confetti-86"></div>
+            <div class="confetti-85"></div>
+            <div class="confetti-84"></div>
+            <div class="confetti-83"></div>
+            <div class="confetti-82"></div>
+            <div class="confetti-81"></div>
+            <div class="confetti-80"></div>
+            <div class="confetti-79"></div>
+            <div class="confetti-78"></div>
+            <div class="confetti-77"></div>
+            <div class="confetti-76"></div>
+            <div class="confetti-75"></div>
+            <div class="confetti-74"></div>
+            <div class="confetti-73"></div>
+            <div class="confetti-72"></div>
+            <div class="confetti-71"></div>
+            <div class="confetti-70"></div>
+            <div class="confetti-69"></div>
+            <div class="confetti-68"></div>
+            <div class="confetti-67"></div>
+            <div class="confetti-66"></div>
+            <div class="confetti-65"></div>
+            <div class="confetti-64"></div>
+            <div class="confetti-63"></div>
+            <div class="confetti-62"></div>
+            <div class="confetti-61"></div>
+            <div class="confetti-60"></div>
+            <div class="confetti-59"></div>
+            <div class="confetti-58"></div>
+            <div class="confetti-57"></div>
+            <div class="confetti-56"></div>
+            <div class="confetti-55"></div>
+            <div class="confetti-54"></div>
+            <div class="confetti-53"></div>
+            <div class="confetti-52"></div>
+            <div class="confetti-51"></div>
+            <div class="confetti-50"></div>
+            <div class="confetti-49"></div>
+            <div class="confetti-48"></div>
+            <div class="confetti-47"></div>
+            <div class="confetti-46"></div>
+            <div class="confetti-45"></div>
+            <div class="confetti-44"></div>
+            <div class="confetti-43"></div>
+            <div class="confetti-42"></div>
+            <div class="confetti-41"></div>
+            <div class="confetti-40"></div>
+            <div class="confetti-39"></div>
+            <div class="confetti-38"></div>
+            <div class="confetti-37"></div>
+            <div class="confetti-36"></div>
+            <div class="confetti-35"></div>
+            <div class="confetti-34"></div>
+            <div class="confetti-33"></div>
+            <div class="confetti-32"></div>
+            <div class="confetti-31"></div>
+            <div class="confetti-30"></div>
+            <div class="confetti-29"></div>
+            <div class="confetti-28"></div>
+            <div class="confetti-27"></div>
+            <div class="confetti-26"></div>
+            <div class="confetti-25"></div>
+            <div class="confetti-24"></div>
+            <div class="confetti-23"></div>
+            <div class="confetti-22"></div>
+            <div class="confetti-21"></div>
+            <div class="confetti-20"></div>
+            <div class="confetti-19"></div>
+            <div class="confetti-18"></div>
+            <div class="confetti-17"></div>
+            <div class="confetti-16"></div>
+            <div class="confetti-15"></div>
+            <div class="confetti-14"></div>
+            <div class="confetti-13"></div>
+            <div class="confetti-12"></div>
+            <div class="confetti-11"></div>
+            <div class="confetti-10"></div>
+            <div class="confetti-9"></div>
+            <div class="confetti-8"></div>
+            <div class="confetti-7"></div>
+            <div class="confetti-6"></div>
+            <div class="confetti-5"></div>
+            <div class="confetti-4"></div>
+            <div class="confetti-3"></div>
+            <div class="confetti-2"></div>
+            <div class="confetti-1"></div>
+            <div class="confetti-0"></div>
+          </div>
         </mat-step>
 
         <ng-template matStepperIcon="person">
@@ -295,12 +279,11 @@
           <mat-icon>school</mat-icon>
         </ng-template>
         <ng-template matStepperIcon="storage">
-            <mat-icon>storage</mat-icon>
-          </ng-template>
-          <ng-template matStepperIcon="review">
-              <mat-icon>assignment_turned_in</mat-icon>
-            </ng-template>
+          <mat-icon>storage</mat-icon>
+        </ng-template>
+        <ng-template matStepperIcon="review">
+          <mat-icon>assignment_turned_in</mat-icon>
+        </ng-template>
       </mat-horizontal-stepper>
     </div>
   </div>
-</div>

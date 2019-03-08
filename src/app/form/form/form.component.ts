@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-import {MatBottomSheet, MatBottomSheetRef} from '@angular/material';
+import {MatBottomSheet, MatBottomSheetRef, MatListOption} from '@angular/material';
 
 @Component({
   selector: 'app-form',
@@ -17,8 +17,10 @@ export class FormComponent implements OnInit {
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   areas: string[] = ['Development (Readify)', 'Data (Readify)', 'Design (Readify)', 'Infrastructure (Kloud)', 'Kloud'];
-  selectedOptions=[];
-  selectedOption;
+  selectedArea: string[];
+  submitted: boolean = false;
+  rightToWork: string;
+  options: string[] = ['Yes', 'No'];
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -41,9 +43,13 @@ export class FormComponent implements OnInit {
     });
   }
 
-  onNgModelChange($event){
-    console.log($event);
-    this.selectedOption=$event;
-    
+  onGroupsChange(options: MatListOption[]) {
+    // map these MatListOptions to their values
+    console.log(options.map(o => o.value));
   }
+
+  onSubmit(){
+    this.submitted = !this.submitted;
+  }
+
 }
