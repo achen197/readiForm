@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
-import {MatBottomSheet, MatBottomSheetRef, MatListOption} from '@angular/material';
+import {MatBottomSheet, MatBottomSheetRef} from '@angular/material';
 
 @Component({
   selector: 'app-form',
@@ -16,11 +16,13 @@ export class FormComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
-  areas: string[] = ['Development (Readify)', 'Data (Readify)', 'Design (Readify)', 'Infrastructure (Kloud)', 'Kloud'];
-  selectedArea: string[];
   submitted: boolean = false;
   rightToWork: string;
   options: string[] = ['Yes', 'No'];
+  unableToWork: boolean = false;
+
+  areasOfInterest = ['Development (Readify)', 'Data (Readify)', 'Design (Readify)', 'Infrastructure (Kloud)', 'Kloud'];
+  current_selected: string;
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -43,12 +45,16 @@ export class FormComponent implements OnInit {
     });
   }
 
-  onGroupsChange(options: MatListOption[]) {
-    // map these MatListOptions to their values
-    console.log(options.map(o => o.value));
-  }
+  onSelection(e, v){
+    this.current_selected = e.option.value;
+ }
 
-  onSubmit(){
+ disableNextBtn(answer) {
+  return (answer === 'No') ? this.unableToWork : !this.unableToWork;
+  console.log(this.unableToWork);
+}
+
+  onSubmit() {
     this.submitted = !this.submitted;
   }
 

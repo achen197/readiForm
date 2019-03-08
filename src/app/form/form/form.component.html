@@ -41,7 +41,7 @@
                 </mat-select>
               </mat-form-field>
               <mat-radio-group [(ngModel)]="rightToWork" [ngModelOptions]="{standalone: true}">
-                  <h4 class="state">Do you have the right to work in Australia</h4>
+                  <h4 class="state">Do you have the right to work in Australia?</h4>
                   <mat-radio-button *ngFor="let option of options" [value]="option">{{option}}</mat-radio-button>
                 </mat-radio-group>
             <div class="btn-right">
@@ -76,19 +76,12 @@
         <mat-step [stepControl]="thirdFormGroup" state="clear_all">
           <form [formGroup]="thirdFormGroup" class="form-input3">
             <ng-template matStepLabel>Capability</ng-template>
-            <h3 class="welcome-msg">Last one! Which capability are you interested in?</h3>
-
-            <mat-selection-list #area (selectionChange)="onGroupsChange(area.selectedOptions.selected)">
-              <mat-list-option *ngFor="let a of areas" [value]="area">
-                {{a}}
-              </mat-list-option>
-            </mat-selection-list>
-
-            <p>
-              Options selected: {{area.selectedOptions.selected.length}}
-            </p>
-            <p>{{area}}</p>
-
+            <h3 class="welcome-msg">Last one! Which capability are you interested in? Feel free to select more than one 🤙</h3>
+            <mat-selection-list #areas (selectionChange)="onSelection($event, areas.selectedOptions)" >
+                <mat-list-option *ngFor="let area of areasOfInterest" [value]='area'>
+                  {{area}}
+                </mat-list-option>
+              </mat-selection-list>
             <div class="btn-right">
               <button mat-stroked-button color="primary" matStepperPrevious><span style="margin-right:10px;"
                   class="glyphicon glyphicon-chevron-left"></span>Back</button>
@@ -112,7 +105,9 @@
           <p>Right to work in Australia: {{rightToWork}}</p>
           <p>Study: {{degree}} at {{university}}</p>
           <p>Graduated/Graduating in: {{year}}</p>
-          <p>Interested in: {{capability}}</p>
+          <p>Interested in: 
+            <span *ngFor="let i of areas.selectedOptions.selected">{{i.value}} </span>
+          </p>
           <div class="btn-right">
             <button mat-stroked-button color="primary" matStepperPrevious><span style="margin-right:10px;"
                 class="glyphicon glyphicon-chevron-left"></span>Back</button>
