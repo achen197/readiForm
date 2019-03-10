@@ -12,6 +12,8 @@ import { MatButtonModule, MatRadioModule,
          MatInputModule, MatStepperModule,
          MatIconModule, MatCardModule } from '@angular/material';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,8 @@ import { MatButtonModule, MatRadioModule,
     MatInputModule,
     MatStepperModule,
     MatRadioModule,
-    MatIconModule,MatCardModule
+    MatIconModule,MatCardModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
