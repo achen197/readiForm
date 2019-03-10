@@ -15,6 +15,8 @@ import { MatButtonModule, MatRadioModule,
          MatCheckboxModule, MatListModule,
          MatExpansionModule } from '@angular/material';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +38,8 @@ import { MatButtonModule, MatRadioModule,
     MatSelectModule,
     MatBottomSheetModule,
     MatExpansionModule
+    MatIconModule,MatCardModule,
+    HttpClientModule
   ],
   entryComponents: [FormComponent, BottomSheetOverviewExampleSheet],
   providers: [],

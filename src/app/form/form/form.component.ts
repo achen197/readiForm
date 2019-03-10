@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material';
+import { Candidate } from 'src/app/models/candidate.model';
+import { RestService } from 'src/app/rest.service';
 
 @Component({
   selector: 'app-form',
@@ -26,9 +28,10 @@ export class FormComponent implements OnInit {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private bottomSheet: MatBottomSheet
+    private bottomSheet: MatBottomSheet, 
+    private restService: RestService
     ) {}
-
+  
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       firstName: ['', Validators.required],
@@ -55,11 +58,6 @@ export class FormComponent implements OnInit {
   console.log(this.unableToWork);
 }
 
-  onSubmit() {
-    this.submitted = !this.submitted;
-  }
-
-
   openBottomSheet(): void {
     this.bottomSheet.open(BottomSheetOverviewExampleSheet);
   }
@@ -76,5 +74,31 @@ export class BottomSheetOverviewExampleSheet {
   openLink(event: MouseEvent): void {
     this.bottomSheetRef.dismiss();
     event.preventDefault();
+
+  onSubmit()
+  {
+    this.submitted = !this.submitted;
+    let value = this.firstFormGroup.get('firstName').value;
+    var candidate: Candidate = 
+    {
+      firstName: this.firstFormGroup.get('firstName').value,
+      lastName: this.firstFormGroup.get('lastName').value,
+      email: this.firstFormGroup.get('email').value,
+      phone: this.firstFormGroup.get('email').value,
+      degree: this.secondFormGroup.get('degree').value,
+      university: this.secondFormGroup.get('university').value,
+      yearOfGraduation: this.secondFormGroup.get('year').value,
+      areasOfInterest: this.thirdFormGroup.get('capability').value,
+    };
+    this.restService.newCandidate(candidate).subscribe(
+      candidate => {
+        alert('SUCCESS!!');
+      },
+      error => {
+        console.log(error); 
+        alert('An Error Occured!!\n\n' + JSON.stringify(error));
+      }
+    );
+    
   }
 }
