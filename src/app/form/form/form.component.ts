@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
+import {MatBottomSheet, MatBottomSheetRef} from '@angular/material';
 import { Candidate } from 'src/app/models/candidate.model';
 import { RestService } from 'src/app/rest.service';
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -11,18 +13,31 @@ import { RestService } from 'src/app/rest.service';
     provide: STEPPER_GLOBAL_OPTIONS, useValue: {displayDefaultIndicatorType: false, showError: true}
   }]
 })
+
 export class FormComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
+  submitted: boolean = false;
+  rightToWork: string;
+  options: string[] = ['Yes', 'No'];
+  unableToWork: boolean = false;
 
-  constructor(private _formBuilder: FormBuilder, private restService: RestService) {}
+  areasOfInterest = ['Development (Readify)', 'Data (Readify)', 'Design (Readify)', 'Infrastructure (Kloud)', 'Kloud'];
+  current_selected: string;
 
+  constructor(
+    private _formBuilder: FormBuilder,
+    private bottomSheet: MatBottomSheet, 
+    private restService: RestService
+    ) {}
+  
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      email: ['', Validators.required]
+      email: ['', Validators.required],
+      number: ['', Validators.required],
     });
     this.secondFormGroup = this._formBuilder.group({
       degree: ['', Validators.required],
@@ -34,8 +49,35 @@ export class FormComponent implements OnInit {
     });
   }
 
+  onSelection(e, v){
+    this.current_selected = e.option.value;
+ }
+
+ disableNextBtn(answer) {
+  return (answer === 'No') ? this.unableToWork : !this.unableToWork;
+  console.log(this.unableToWork);
+}
+
+  openBottomSheet(): void {
+    this.bottomSheet.open(BottomSheetOverviewExampleSheet);
+  }
+
+}
+
+@Component({
+  selector: 'app-form',
+  templateUrl: 'role-desc.html',
+})
+export class BottomSheetOverviewExampleSheet {
+  constructor(private bottomSheetRef: MatBottomSheetRef<BottomSheetOverviewExampleSheet>) {}
+
+  openLink(event: MouseEvent): void {
+    this.bottomSheetRef.dismiss();
+    event.preventDefault();
+
   onSubmit()
   {
+    this.submitted = !this.submitted;
     let value = this.firstFormGroup.get('firstName').value;
     var candidate: Candidate = 
     {
@@ -59,19 +101,4 @@ export class FormComponent implements OnInit {
     );
     
   }
-  getErrorMessage() {
-    // return this.firstFormGroup.hasError('required') ? 'You must enter a value' :
-    //     this.firstFormGroup.hasError('email') ? 'Not a valid email' :
-    //         '';
-    console.log("ERROR YALL");
-  }
 }
-
-// this.candidate.firstName = this.firstFormGroup.get('firstName').value;
-//     this.candidate.lastName = this.firstFormGroup.get('lastName').value;
-//     this.candidate.email = this.firstFormGroup.get('email').value;
-//     this.candidate.phone = this.firstFormGroup.get('email').value;
-//     this.candidate.degree = this.secondFormGroup.get('degree').value;
-//     this.candidate.university = this.secondFormGroup.get('university').value;
-//     this.candidate.yearOfGraduation = this.secondFormGroup.get('year').value;
-//     this.candidate.areasOfInterest = this.thirdFormGroup.get('capability').value;

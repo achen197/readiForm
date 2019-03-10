@@ -51,11 +51,47 @@ $body-font: 'Roboto', sans-serif;
     text-align: right;
 }
 
-.mat-radio-button {
+.about-btn {
+
+    .mat-raised-button:not([class*=mat-elevation-z]) {
+        margin: 0;
+        padding: 0rem 2rem;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    
+    .about {
+        display: inline-flex;
+    
+        .mat-button-wrapper {
+            display: inline-flex;
+            align-items: center;
+
+            mat-icon {
+                font-size: 2.2rem;
+                margin-left: 0.5rem;
+            }
+        }
+    }
+}
+
+.mat-expansion-panel-header-title {
+    display: inline-flex;
+    align-items: center;
+
+    img {
+        width: 25px;
+        height: 25px;
+        margin-right: 1rem;
+    }
+}
+
+.mat-checkbox-button {
     display: block !important;
 }
 
-.mat-radio-label-content {
+.mat-checkbox-label,
+.mat-label {
     font-weight: 400;
     font-size: 1.3rem;
     font-family: $head-font;
@@ -67,11 +103,21 @@ $body-font: 'Roboto', sans-serif;
         right: 0px;
         float: right;
         margin-right: 2rem;
+        // display: inline-flex;
+    }
+
+    ::before {
+        content: '\e88f';
+        display: inline-flex;
     }
 }
 
 .mat-card {
     margin: 1rem 0;
+}
+
+.mat-stepper-horizontal {
+    background-color: rgba(255,255,255,0.8);
 }
 
 .mat-raised-button .mat-button-wrapper>*, .mat-stroked-button .mat-button-wrapper>* {
@@ -112,7 +158,7 @@ $body-font: 'Roboto', sans-serif;
 }
 
 .form-q {
-    padding: 1rem 14rem;
+    padding: 1rem 8rem;
     
     img {
         display: block;
@@ -124,28 +170,41 @@ $body-font: 'Roboto', sans-serif;
     border-radius: 100px;
 }
 
-.mat-stepper-label-position-bottom .mat-horizontal-stepper-header-container {
-    position: absolute;
-    bottom: 6vh;
+.alert img {
+    display: unset;
+    vertical-align: baseline;
+    margin-left: 0.8rem;
+}
+
+.mat-radio-button {
+    margin-right: 4rem;
+}
+
+.mat-radio-label-content {
+    font-weight: 400;
 }
 
 .form-input {
-    margin-top: 16rem;
+    margin-top: 6vh;
 }
 
 .form-input2 {
-    margin-top: 20rem;
+    margin-top: 16vh;
 }
 
 .form-input3 {
-    margin-top: 12rem;
+    margin-top: 8vh;
 }
 
 .party {
-    h3:after {
-        background: url(./assets/img/partyparrot.gif); 
-    }
+    margin-top: 18vh;
 }
+
+.state {
+    font-size: 1.4rem;
+    margin-top: 0;
+}
+
 //Form Style End
 
 //MEDIA QUERIES
@@ -170,6 +229,19 @@ $body-font: 'Roboto', sans-serif;
     .capability img {
         display: none;
     }
+
+    .form-input {
+        margin-top: 8vh;
+    }
+    
+    .form-input2 {
+        margin-top: 10vh;
+    }
+    
+    .form-input3 {
+        margin-top: 4vh;
+    }
+
 }
 
 @media screen and (max-width: 980px) {
@@ -204,6 +276,24 @@ $body-font: 'Roboto', sans-serif;
     
     .form-q {
         padding: 0 3rem;
+    }
+
+    .form-input {
+        margin-top: 8vh;
+    }
+    
+    .form-input2 {
+        margin-top: 10vh;
+    }
+    
+    .form-input3 {
+        margin-top: 4vh;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .form-input3 {
+        margin-top: 0;
     }
 }
 

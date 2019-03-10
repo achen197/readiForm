@@ -25,19 +25,18 @@ main {
 .btn {
     border: 2px solid white;
     padding: 0.8rem 3rem;
+}
 
-    a {
-        color: white;
-        font-family: $heading-font;
-        text-transform: uppercase;
-        font-weight: 700;
-        letter-spacing: 2px;
-        font-size: 1.2rem;
-		
-		&:hover,
-		&:focus {
-			text-decoration: none;
-		}
+button {
+	color: white;
+	font-family: $heading-font;
+	text-transform: uppercase;
+	font-weight: 700;
+	letter-spacing: 2px;
+	font-size: 1.2rem;
+
+	&:hover {
+		color: white;	
 	}
 }
 
